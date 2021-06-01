@@ -1,0 +1,42 @@
+.trending {
+    background: $bg-trending;
+    height: 430px;
+
+    h2 {
+        margin-top: 46px;
+        font-family: $family-principal;
+        font-size: 20px;
+        color: $color-secundario;
+        text-align: center;
+        line-height: 30px;        
+        font-weight: 800;
+    }
+    p {
+        margin: 7px 0 32px 0;
+        width: 100%;
+        height: 46px;
+        font-family: $family-segunda;
+        font-size: 16px;
+        color: #000000;
+        text-align: center;
+        line-height: 23px;
+    }
+
+    .carrusel {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 187px;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+        margin-bottom: 82px;
+        img{
+            object-fit: cover;    
+            scroll-snap-align: center;
+            width: 246px;
+            height: 187px;
+            margin: 0 10px 0 10px;
+            
+    }
+}
+}

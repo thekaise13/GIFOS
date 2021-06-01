@@ -1,0 +1,35 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 5px solid $color-secundario;
+    width: 100%;
+
+    p {
+        margin-top: 47px;
+        font-family: $family-segunda;
+        font-size: 15px;
+        color: #000000 ;
+        letter-spacing: 0;
+    }
+
+    .ul-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .li-footer{
+            margin: 24px 10px 46px 10px;
+
+            a i {
+                color: $color-secundario ;
+                width: 18px;
+                height: 16px;
+            }
+
+        }
+    }
+    .last {
+        margin-bottom: 28px;
+    }
+}
