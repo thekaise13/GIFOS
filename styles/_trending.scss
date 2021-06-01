@@ -1,12 +1,11 @@
 .trending {
-    background: $bg-trending;
+    background: var(--bg-trending);
     height: 430px;
 
     h2 {
-        margin-top: 46px;
-        font-family: $family-principal;
+        font-family: var(--family-principal);
         font-size: 20px;
-        color: $color-secundario;
+        color: var(--color-secundario);
         text-align: center;
         line-height: 30px;        
         font-weight: 800;
@@ -15,9 +14,9 @@
         margin: 7px 0 32px 0;
         width: 100%;
         height: 46px;
-        font-family: $family-segunda;
+        font-family: var(--family-segunda);
         font-size: 16px;
-        color: #000000;
+        color: var(--color-roboto);
         text-align: center;
         line-height: 23px;
     }

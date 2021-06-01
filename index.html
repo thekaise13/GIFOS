@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css"
         integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://kit.fontawesome.com/fe6bc57bd1.js" crossorigin="anonymous"></script>
     <title>GIFOS</title>
 </head>
 
 <body>
-    <header>
+    <header class="header-dark">
         <img src="images/logo-mobile.svg" alt="logo-gifos" class="logo">
         <nav>
             <div class="menu">
@@ -23,14 +24,14 @@
                 <span></span>
                 <span></span>
                 <ul class="ul-menu">
-                    <li class="li-menu"><a href="#Episodios">Modo Nocturno</a> </li>
+                    <li class="li-menu nocturno"><a href="#Episodios">Modo Nocturno</a> </li>
                     <span class="center-border "></span>
                     <li class="li-menu"><a href="#Nosotros"> Favoritos</a></li>
                     <span class="center-border "></span>
                     <li class="li-menu"><a href="#Entrevistas">Mis GIFOS</a>
                     </li>
                     <span class="center-border "></span>
-                    <li class="crear"><img src="/images/button-crear-gifo.svg" alt="crear"></li>
+                    <li class="crear"><img src="/images/button-crear-gifo.svg" alt="crear" class="crearimg"></li>
                 </ul>
             </div>
         </nav>
@@ -41,7 +42,7 @@
             <img src="images/ilustra_header.svg" alt="ilustracion" class="ilustracion">
             <form class="search">
                 <input type="search" name="search" id="search-placeholder" placeholder="Busca GIFOS y más">
-                <button type="submit"><img src="/images/icon-search.svg" alt=""></button>
+                <button type="submit" id="search-botton"><i class="fas fa-search"></i></button>
             </form>
             <h3>Trending:</h3>
             <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
@@ -60,20 +61,22 @@
             </div>
         </section>
         <footer>
-            <p>Compartir en:</p>
-            <ul class="ul-footer">
-                <li class="li-footer"><a target="_blank" href="https://www.facebook.com/DianaUribe.fm/"><i
-                            class="fab fa-facebook-f"></i></a></li>
-                <li class="li-footer"><a target="_blank"
-                        href="https://twitter.com/DianaUribefm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
-                            class="fab fa-twitter"></i></a></li>
-                <li class="li-footer"><a target="_blank" href="https://www.instagram.com/dianauribe.fm/"><i
-                            class="fab fa-instagram"></i></a></li>
-            </ul>
+            <div>
+                <p>Compartir en:</p>
+                <ul class="ul-footer">
+                    <li class="li-footer"><a target="_blank" href="https://www.facebook.com/DianaUribe.fm/"><i
+                                class="fab fa-facebook-f"></i></a></li>
+                    <li class="li-footer"><a target="_blank"
+                            href="https://twitter.com/DianaUribefm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                                class="fab fa-twitter"></i></a></li>
+                    <li class="li-footer"><a target="_blank" href="https://www.instagram.com/dianauribe.fm/"><i
+                                class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
             <p class="last">© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>
-
+    <script src="app.js"></script>
 </body>
 
 </html>

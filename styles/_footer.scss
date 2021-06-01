@@ -2,14 +2,16 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 5px solid $color-secundario;
+    border-bottom: 5px solid var(--color-border);
     width: 100%;
+    background: var(--bg);
+    
 
     p {
         margin-top: 47px;
-        font-family: $family-segunda;
+        font-family: var(--family-segunda);
         font-size: 15px;
-        color: #000000 ;
+        color: var(--color-roboto) ;
         letter-spacing: 0;
     }
 
@@ -22,7 +24,7 @@ footer {
             margin: 24px 10px 46px 10px;
 
             a i {
-                color: $color-secundario ;
+                color: var(--color-secundario) ;
                 width: 18px;
                 height: 16px;
             }

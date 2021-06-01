@@ -1,15 +1,16 @@
 .busqueda{
-    background: $bg;
+    background: var(--bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding: 45px;
 
     h1{
         width: 286px;
         height: 99px;
-        font-family: $family-principal;
-        color: $color-secundario;
+        font-family: var(--family-principal);
+        color: var(--color-secundario);
         text-align: center;
         font-weight: bold;
         font-size: 25px;
@@ -29,7 +30,7 @@
         width:89%;
         max-width: 500px;
         height: 50px;
-        border: 2px solid $color-secundario;
+        border: 2px solid var(--color-secundario);
         border-radius: 27px;
         display: flex;
         flex-direction: row;
@@ -37,19 +38,26 @@
 
         #search-placeholder{
             text-align: center;
+            background: var(--bg);
             color: #6B7989;
-            font-family: $family-segunda;
+            font-family: var(--family-segunda);
             font-size: 16px;
             border-style:none;
             margin-left: 7%;
             width: 85%;
         }
         button{
+            background: var(--bg);
             border-style: none;
             width: 5%;
             height: 20px;
             margin-top: 11px;
             margin-right: 7.4%;
+
+            .fas{
+                color: var(--color-secundario);
+                width: 20px;
+            }
         }
 
         
@@ -57,19 +65,19 @@
     }
 
     h3 {
-        font-family: $family-principal;
+        font-family: var(--family-principal);
         font-size: 16px;
-        color: $color-secundario;
+        color: var(--color-secundario);
         text-align: center;
         line-height: 25px; 
         font-weight: 700;   
         margin-top: 31px;    
     }
     p{
-        font-family: $family-principal;
+        font-family: var(--family-principal);
         font-size: 14px;
         font-weight: 400;
-        color:$color-secundario;
+        color: var(--color-secundario);
         text-align: center;
         line-height: 25px;        
         width: 208px;

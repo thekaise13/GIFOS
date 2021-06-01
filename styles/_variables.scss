@@ -1,5 +1,18 @@
-$bg: #ffffff;
-$bg-trending: #f3f5f8;
-$color-secundario: #572EE5;
-$family-principal: "Montserrat", sans-serif;
-$family-segunda: "Roboto", sans-serif;
+
+    :root{
+    --bg: #ffffff;
+    --bg-trending: #f3f5f8;
+    --color-secundario: #572EE5;
+    --color-roboto:#000000;
+    --color-border:#572EE5;
+    --family-principal: "Montserrat", sans-serif;
+    --family-segunda: "Roboto", sans-serif;
+    }
+
+    .dark-theme{
+        --bg: #37383C;
+        --bg-trending:#222326;
+        --color-secundario: #FFFFFF;
+        --color-roboto:#FFFFFF;
+        --color-border:#000000;
+    }

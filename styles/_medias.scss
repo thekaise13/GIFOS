@@ -8,7 +8,7 @@
         right:-30px;
         width: 100%;
         margin-right: 135px;
-        background: $bg;
+        background: var(--bg);
     }
     .crear {
         display: block;
@@ -37,12 +37,12 @@
 
 header nav .menu ul li a {
     text-transform: uppercase;
-    font-family: $family-principal;
+    font-family: var(--family-principal);
     font-size: 9px;
     line-height: 16px;
     letter-spacing: 0;
     text-align: center;
-    color: $color-secundario;
+    color: var(--color-secundario);
 }
 header nav .menu span {
     display: none;
@@ -64,15 +64,24 @@ main .busqueda h1 {
 }
 footer {
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
     
-    p {
-        margin-left: 70px;
-        font-size: 13px;
-    }
+    div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+        margin-left: 10px;
+        p {
+            font-size: 13px;
+        }
 
+    }    
     .last {
-        margin-left: 175px;
+        font-size: 13px;
+        margin-left: 29%;
+        margin-bottom: 47px;
         
     }
     .ul-footer {
@@ -84,7 +93,7 @@ footer {
             a i{
                 color: #CDD6E0 ;
                 &:hover{
-                    color: $color-secundario;
+                    color: var(--color-secundario);
             }
         }
             &:first-child{
