@@ -5,9 +5,11 @@
     --color-secundario: #572EE5;
     --color-roboto:#000000;
     --color-border:#572EE5;
+    --color-ul:rgba(87,46,229,0.90);
     --family-principal: "Montserrat", sans-serif;
     --family-segunda: "Roboto", sans-serif;
     }
+    
 
     .dark-theme{
         --bg: #37383C;
@@ -15,4 +17,5 @@
         --color-secundario: #FFFFFF;
         --color-roboto:#FFFFFF;
         --color-border:#000000;
+        --color-ul:#000000;
     }

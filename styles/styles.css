@@ -5,6 +5,7 @@
   --color-secundario: #572EE5;
   --color-roboto:#000000;
   --color-border:#572EE5;
+  --color-ul:rgba(87,46,229,0.90);
   --family-principal: "Montserrat", sans-serif;
   --family-segunda: "Roboto", sans-serif;
 }
@@ -15,6 +16,7 @@
   --color-secundario: #FFFFFF;
   --color-roboto:#FFFFFF;
   --color-border:#000000;
+  --color-ul:#000000;
 }
 
 * {
@@ -69,7 +71,7 @@ nav {
   right: 0;
   overflow: hidden;
   list-style: none;
-  background: rgba(87, 46, 229, 0.9);
+  background: var(--color-ul);
   height: 0px;
   -webkit-transition: height 0.5s linear;
   transition: height 0.5s linear;
@@ -356,7 +358,7 @@ footer .ul-footer {
 }
 
 footer .ul-footer .li-footer {
-  margin: 24px 10px 46px 10px;
+  margin: 24px 10px 46px 4px;
 }
 
 footer .ul-footer .li-footer a i {
