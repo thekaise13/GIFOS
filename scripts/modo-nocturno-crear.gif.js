@@ -1,5 +1,6 @@
-//modo nocturno
 const nocturno = document.querySelector('.nocturno')
+const camara = document.querySelector('.img-camara')
+const peli = document.querySelector('.img-peli')
 
 nocturno.onclick = () => {
     const img = document.querySelector('.logo')
@@ -7,14 +8,14 @@ nocturno.onclick = () => {
     const modo = document.querySelector('.modo')
     document.body.classList.toggle('dark-theme')
     if (document.body.classList.contains('dark-theme')) {
-        img.src = "images/Logo-modo-noc.svg"
-        crear.src = "images/CTA-crar-gifo-modo-noc.svg"
         modo.innerText = "Modo Diurno"
+        img.src = "images/Logo-modo-noc.svg"
+        peli.src = "images/pelicula-modo-noc.svg"
+        camara.src = "images/camara-modo-noc.svg"
     } else {
-        img.src = "images/logo-mobile.svg"
-        crear.src = "images/button-crear-gifo.svg"
         modo.innerText = "Modo Nocturno"
+        camara.src = "images/camara.svg"
+        img.src = "images/logo-mobile.svg"
+        peli.src = "images/pelicula.svg"
     }
 }
-
-

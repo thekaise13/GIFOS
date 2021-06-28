@@ -1,6 +1,7 @@
 .trending {
     background: var(--bg-trending);
-    height: 430px;
+    padding-top: 10px;
+    padding-bottom: 100px;
 
     h2 {
         font-family: var(--family-principal);
@@ -20,8 +21,9 @@
         text-align: center;
         line-height: 23px;
     }
+}
 
-    .carrusel {
+    .carousel_img {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -37,5 +39,11 @@
             margin: 0 10px 0 10px;
             
     }
+    
 }
+.carousel button#carousel__button--next {
+    display:none;
+}
+.carousel button#carousel__button--prev {
+    display:none;
 }

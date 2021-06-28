@@ -9,14 +9,14 @@
         integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css"
         integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="https://kit.fontawesome.com/fe6bc57bd1.js" crossorigin="anonymous"></script>
     <title>GIFOS</title>
 </head>
 
 <body>
-    <header class="header-dark">
-        <img src="images/logo-mobile.svg" alt="logo-gifos" class="logo">
+    <header class="header">
+        <a href="#header"><img src="images/logo-mobile.svg" alt="logo-gifos" class="logo"></a>
         <nav>
             <div class="menu">
                 <input type="checkbox" name="checkbox" id="toggle">
@@ -26,12 +26,12 @@
                 <ul class="ul-menu">
                     <li class="li-menu nocturno"><a href="#Episodios" class="modo">Modo Nocturno</a> </li>
                     <span class="center-border "></span>
-                    <li class="li-menu"><a href="#Nosotros"> Favoritos</a></li>
+                    <li class="li-menu fav"><a href="#Nosotros"> Favoritos</a></li>
                     <span class="center-border "></span>
                     <li class="li-menu"><a href="#Entrevistas">Mis GIFOS</a>
                     </li>
                     <span class="center-border "></span>
-                    <li class="crear"><img src="/images/button-crear-gifo.svg" alt="crear" class="crearimg"></li>
+                    <li class="crear-index"><a href="create-gif.html"><i class="fas fa-plus create-ajust"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -40,24 +40,32 @@
         <section class="busqueda">
             <h1>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h1>
             <img src="images/ilustra_header.svg" alt="ilustracion" class="ilustracion">
-            <form class="search">
-                <input type="search" name="search" id="search-placeholder" placeholder="Busca GIFOS y más">
-                <button type="submit" id="search-botton"><i class="fas fa-search"></i></button>
-            </form>
+            <div class="wrapper">
+                <div class="search-input">
+                    <i class="fas fa-search hid"></i>
+                    <a href="" target="_blank" hidden></a>
+                    <input type="text" placeholder="Busca GIFOS y mas">
+                    <hr class="hidden-hr">
+                    <div class="autocom-box">
+                        <!-- here list are inserted from javascript -->
+                    </div>
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                </div>
+            </div>
             <h3>Trending:</h3>
             <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+            <div class="imagenes">
+            </div>
+            <div class="pagg"></div>
         </section>
         <section class=" trending">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos <br> GIFOSs de nuestra comunidad.</p>
-            <div class="carrusel">
-                <img src="https://media1.tenor.com/images/c7e549786b748474c08a5ab64f90ea08/tenor.gif?itemid=18132843"
-                    alt="gato prueba">
-                <img src="https://media0.giphy.com/media/JROB2yZw89dFXrPXR9/giphy.gif" alt="gato">
-                <img src="https://media1.tenor.com/images/b7a081187280d455c5760a3de8a52768/tenor.gif?itemid=12957105"
-                    alt="gato">
-                <img src="https://acegif.com/wp-content/gifs/cat-attack-57.gif" alt="gato" gato>
-                <img src="https://media.tenor.com/images/bbcd0a40ee71a35245d69df2bea4a94f/tenor.gif" alt="gato">
+            <div class="carousel">
+                <button id="carousel__button--prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel_img">
+                </div>
+                <button id="carousel__button--next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
         <footer>
@@ -76,7 +84,9 @@
             <p class="last">© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>
-    <script src="app.js"></script>
+    <script src="scripts/modoNocturno.js"></script>
+    <script src="scripts/pagg.js"></script>
+    <script src="scripts/carousel.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ header {
     display: flex;
     justify-items: center;
     justify-content: space-between;
-    padding: 1rem 6%;
+    padding: 0.5rem 3%;
     width: 100%;
     background: var(--bg);
     border-top: 5px solid var(--color-border);
@@ -74,7 +74,7 @@ header nav .menu .center-border {
 }
 
 header nav .menu input[type="checkbox"]:checked ~ .ul-menu {
-    height: 484px;
+    height: 210px;
 }
 /*checkbox transparente y en primer plano*/
 header nav .menu input {

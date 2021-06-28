@@ -1,0 +1,56 @@
+
+
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+
+.page-btn {
+  background: var(--bg);
+  color: #9CAFC3;
+  height: 26px;
+  border-radius: 50%;
+  padding: 0 7px;
+  transition: background 0.3s ease;
+  margin: 0 1px;
+  font-family: var(--family-segunda);
+  font-size: 10px;
+}
+
+.page-btn:first-of-type {
+  margin-left: 0;
+}
+
+.page-btn:last-of-type {
+  margin-right: 0;
+}
+
+// .page-btn:not([class$="-page"]) {
+// //   width: 35px;
+// }
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.page-btn[class*="-page"] {
+//   background: var(--color-secundario);
+  font-size: 0.6em;
+  font-weight: 700;
+}
+
+.page-btn.active {
+  background: var(--color-secundario);
+  color: var(--bg);
+}
+
+.page-btn[disabled] {
+  opacity: 0.3;
+}
+

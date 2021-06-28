@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css"
+        integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css"
+        integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://kit.fontawesome.com/fe6bc57bd1.js" crossorigin="anonymous"></script>
+    <title>GIFOS</title>
+</head>
+<header class="header">
+    <a href="index.html"><img src="images/logo-mobile.svg" alt="logo-gifos" class="logo"></a>
+    <nav>
+        <div class="menu">
+            <input type="checkbox" name="checkbox" id="toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul class="ul-menu">
+                <li class="li-menu nocturno"><a href="#Episodios" class="modo">Modo Nocturno</a> </li>
+                <span class="center-border "></span>
+                <li class="li-menu fav"><a href="#Nosotros"> Favoritos</a></li>
+                <span class="center-border "></span>
+                <li class="li-menu"><a href="#Entrevistas">Mis GIFOS</a>
+                </li>
+                <span class="center-border "></span>
+                <li class="crear"><i class="fas fa-plus"></i></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <main>
+        <section class="rec">
+            <div class="container-camara">
+                <div class="camara">
+                    <img src="images/camara.svg" alt="camara" class="img-camara">
+                    <img src="images/element-luz-camara.svg" alt="elemento-luz" class="img-luz">
+                </div>
+                <div class="container-rec">
+                    <div class="corner-up">
+                        <span class="corner-1"></span>
+                        <span class="corner-2"></span>
+                    </div>
+                    <div class="recorder-div">
+                        <h2 class="tittle">Aquí podrás <br> crear tus propios GIFOS</h2>
+                        <p class="access">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un
+                            video)</p>
+                    </div>
+                    <div class="corner-down">
+                        <span class="corner-3"></span>
+                        <span class="corner-4"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="conter">
+                <button class="button-1">1</button>
+                <button class="button-2">2</button>
+                <button class="button-3">3</button>
+                <p data-chronometer class="hidden">00:00:00</p>
+                <img src="images/pelicula.svg" class="img-peli" alt="pelicula">
+            </div>
+            <div class="border-botton">
+                <hr>
+            </div>
+            <button class="button-rec">COMENZAR</button>
+        </section>
+        <footer>
+            <div>
+                <p>Compartir en:</p>
+                <ul class="ul-footer">
+                    <li class="li-footer"><a target="_blank" href="https://www.facebook.com/DianaUribe.fm/"><i
+                                class="fab fa-facebook-f"></i></a></li>
+                    <li class="li-footer"><a target="_blank"
+                            href="https://twitter.com/DianaUribefm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                                class="fab fa-twitter"></i></a></li>
+                    <li class="li-footer"><a target="_blank" href="https://www.instagram.com/dianauribe.fm/"><i
+                                class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p class="last">© GIFOS 2020 All Rights Reserved.</p>
+        </footer>
+    </main>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="scripts/rec.js"></script>
+    <script src="scripts/modo-nocturno-crear.gif.js"></script>
+
+</body>
+
+</html>
