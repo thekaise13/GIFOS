@@ -114,4 +114,6 @@ header nav .menu input:checked ~ span:nth-last-child(3) {
 header nav .menu input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(4px, -1px);
 }
-
+header nav .menu .ul-menu i.create-ajust {
+    display: none;
+}

@@ -120,10 +120,33 @@ function PaginationButton(totalPages, maxPagesVisible = 10, currentPage = 1) {
         paginationButtonContainer.addEventListener('change', handler);
     }
 }
+function showSuggestions(list) {
+    let listData;
+    if (!list.length) {
+        userValue = inputBox.value;
+        listData = '<li>' + userValue + '</li>';
+    } else {
+        listData = list.join('');
+    }
+    suggBox.innerHTML = listData;
+}
 
-// const paginationButtons = new PaginationButton(20, 5);
+function innerTemplate(array) {
+    let template1 = ''
+    for (let index = 0; index < 12; index++) {
+        template1 += `<img src="${array[index].images.original.url}" alt="${array[index].title}">`
+    }
+    divGif.innerHTML = template1
+}
+function innerError(data) {
+    divGif.innerHTML = `<p class="p-user-error">${data}</p> <img src="images/icon-busqueda-sin-resultado.svg" alt="sin-resultados" class="sin-resultados" <p class="sin-resultados-p">intenta con otra busqueda</p>`
+    reactions.classList.add("hidden")
+    divGif.classList.remove("imagenes-normal")
+    divGif.classList.add("imagenes-error")
+    pagg.classList.add("hidden")
 
-// paginationButtons.render();
+}
+
 
 
 
@@ -133,10 +156,14 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon");
 let linkTag = searchWrapper.querySelector("a");
-let divGif = document.querySelector('.imagenes')
+let divGif = document.getElementById("imagenes")
 const verMas = document.querySelector('.ver-mas')
 const pagg = document.querySelector('.pagg')
 const hr = document.querySelector('.hidden-hr')
+const reactions = document.querySelector('.reactions')
+const trendingBusqueda = document.querySelector('.trending-busqueda')
+width = window.outerWidth;
+const li = document.querySelector('.li-sugg')
 
 
 // if user press any key and release
@@ -162,7 +189,7 @@ inputBox.onkeyup = (e) => {
                 });
                 emptyArray = emptyArray.map((data) => {
                     // passing return data inside li tag
-                    return data = '<li><i class="fas fa-search"></i>' + data + '</li>';
+                    return data = '<li class="li-sugg"><i class="fas fa-search"></i>' + data + '</li>';
                 });
                 searchWrapper.classList.add("active");
                 icon.innerHTML = '<i class="fa fa-times"></i>' //show autocomplete box
@@ -174,7 +201,6 @@ inputBox.onkeyup = (e) => {
                     allList[i].setAttribute("onclick", "select(this)");
                 }
                 icon.firstChild.setAttribute("onclick", "select(this)")
-
             } else {
                 hr.classList.remove("active");
                 searchWrapper.classList.remove("active");
@@ -184,15 +210,9 @@ inputBox.onkeyup = (e) => {
                 fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
                     .then((res) => res.json(res))
                     .then((gif) => {
-                        let template = ''
                         let urlsgif = gif.data
                         totalPages = Math.floor(gif.pagination.total_count / 12)
-                        let conteo = 0
-                        console.log(gif);
-                        for (let index = 0; index < 12; index++) {
-                            template += `<img src="${urlsgif[index].images.original.url}" alt="${urlsgif[index].title}">`
-                            conteo = index
-                        }
+                        innerTemplate(urlsgif)
                         let pagination = document.querySelector('.pagination-buttons')
                         if (pagg.contains(pagination)) {
                             pagg.removeChild(pagination)
@@ -204,10 +224,15 @@ inputBox.onkeyup = (e) => {
                         }
                         console.log(totalPages);
                         const paginationButtons = new PaginationButton(totalPages, 5);
+                        if (!divGif.classList.contains("imagenes-normal")) {
+                            divGif.classList.add("imagenes-normal")
+                            divGif.classList.remove("imagenes-error")
+                            pagg.classList.remove("hidden")
+                            reactions.classList.remove("hidden")
+                        }
                         paginationButtons.render(pagg)
-                        divGif.innerHTML = template
-                        conteo += 1
-                        console.log(conteo);
+                        // divGif.innerHTML = template
+                        reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${userData}</p>`
                         paginationButtons.onChange(e => {
                             let numButton = e.target.value
                             numButton = (numButton * 12) - 12
@@ -216,44 +241,41 @@ inputBox.onkeyup = (e) => {
                                 .then((res) => res.json(res))
                                 .then((gif) => {
                                     let urlsgif1 = gif.data
-                                    console.log(gif);
-                                    let template1 = ''
-                                    for (let index = 0; index < 12; index++) {
-                                        template1 += `<img src="${urlsgif1[index].images.original.url}" alt="${urlsgif1[index].title}">`
-                                    }
-                                    divGif.innerHTML = template1
+                                    innerTemplate(urlsgif1)
                                 })
                         });
-                    }).catch((err) => { divGif.innerHTML = '<p> error </p>' })
+                    }).catch((err) => { innerError(userData) })
                 searchWrapper.classList.remove("active");
                 hr.classList.remove("active");
                 icon.innerHTML = '<i class="fas fa-search"></i>'
-
-
+                if (width > 600) {
+                    trendingBusqueda.classList.add("hidden")
+                }
 
             }
-        }).catch((err) => { divGif.innerHTML = '<p> error </p>' })
+        }).catch((err) => { innerError(userData) })
 }
 
 function select(element) {
     let selectData = element.textContent;
-    inputBox.value = selectData;
     let times = document.querySelector('.fa fa-times')
+    inputBox.value = selectData;
     icon.onclick = () => {
-        // let userData = e.target.value;
+        inputBox.value = selectData;
         fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}`)
             .then((res) => res.json(res))
             .then((gif) => {
-                let template = ''
                 let urlsgif = gif.data
-                let conteo = 0
+                innerTemplate(urlsgif)
                 totalPages = Math.floor(gif.pagination.total_count / 12)
                 console.log(gif);
-                for (let index = 0; index < 12; index++) {
-                    template += `<img src="${urlsgif[index].images.original.url}" alt="${urlsgif[index].title}">`
-                    conteo = index
+                if (!divGif.classList.contains("imagenes-normal")) {
+                    divGif.classList.add("imagenes-normal")
+                    divGif.classList.remove("imagenes-error")
+                    pagg.classList.remove("hidden")
+                    reactions.classList.remove("hidden")
                 }
-                divGif.innerHTML = template
+                reactions.innerHTML = ` <hr class="hr-data"><p class="p-data">${selectData}</p>`
                 let pagination = document.querySelector('.pagination-buttons')
                 if (pagg.contains(pagination)) {
                     pagg.removeChild(pagination)
@@ -266,8 +288,6 @@ function select(element) {
                 console.log(totalPages);
                 const paginationButtons = new PaginationButton(totalPages, 5);
                 paginationButtons.render(pagg)
-                conteo += 1
-                console.log(conteo);
                 paginationButtons.onChange(e => {
                     let numButton = e.target.value
                     numButton = (numButton * 12) - 12
@@ -276,28 +296,12 @@ function select(element) {
                         .then((res) => res.json(res))
                         .then((gif) => {
                             let urlsgif1 = gif.data
-                            console.log(gif);
-                            let template1 = ''
-                            for (let index = 0; index < 12; index++) {
-                                template1 += `<img src="${urlsgif1[index].images.original.url}" alt="${urlsgif1[index].title}">`
-                            }
-                            divGif.innerHTML = template1
-                        })
+                            innerTemplate(urlsgif1)
+                        }).catch((err) => { innerError(selectData) })
                 });
-            })
+            }).catch((err) => { innerError(selectData) })
     }
     searchWrapper.classList.remove("active");
     hr.classList.remove("active");
     icon.innerHTML = '<i class="fas fa-search"></i>'
-}
-
-function showSuggestions(list) {
-    let listData;
-    if (!list.length) {
-        userValue = inputBox.value;
-        listData = '<li>' + userValue + '</li>';
-    } else {
-        listData = list.join('');
-    }
-    suggBox.innerHTML = listData;
 }

@@ -27,6 +27,10 @@
   list-style-type: none;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -169,6 +173,10 @@ header nav .menu input:checked ~ span:nth-last-child(3) {
 header nav .menu input:checked ~ span:nth-last-child(2) {
   -webkit-transform: rotate(-45deg) translate(4px, -1px);
           transform: rotate(-45deg) translate(4px, -1px);
+}
+
+header nav .menu .ul-menu i.create-ajust {
+  display: none;
 }
 
 .busqueda {
@@ -365,7 +373,19 @@ header nav .menu input:checked ~ span:nth-last-child(2) {
   width: 208px;
 }
 
-.busqueda .imagenes {
+.busqueda .imagenes-error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.busqueda .imagenes-normal {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -380,10 +400,41 @@ header nav .menu input:checked ~ span:nth-last-child(2) {
   margin-bottom: 10px;
 }
 
-.busqueda .imagenes img {
+.busqueda .imagenes-normal img {
   padding: 4%;
   width: 100%;
   height: 120px;
+}
+
+.busqueda .reactions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.busqueda .reactions hr.hr-data {
+  width: 175px;
+  height: 1px;
+  background: #9CAFC3;
+  opacity: 0.5;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.busqueda .reactions p.p-data {
+  font-family: var(--family-principal);
+  font-size: 35px;
+  color: var(--color-secundario);
+  text-align: center;
+  line-height: 30px;
+  margin: 50px 0px 20px 0px;
 }
 
 .trending {
@@ -543,9 +594,13 @@ footer .last {
     cursor: pointer;
   }
   li.crear-index i.create-ajust {
+    display: block;
     position: relative;
     top: -5px;
     font-size: 12px;
+  }
+  header nav .menu .ul-menu i.create-ajust {
+    display: block;
   }
   header nav .menu ul li a {
     text-transform: uppercase;
@@ -573,6 +628,12 @@ footer .last {
   }
   .busqueda .ilustracion {
     margin-top: 0px;
+  }
+  .busqueda .reactions.hidden {
+    display: none;
+  }
+  .busqueda .reactions hr.hr-data {
+    width: 360px;
   }
   .busqueda h3 {
     font-size: 12px;
@@ -698,7 +759,7 @@ footer .last {
 }
 
 @media only screen and (min-device-width: 900px) {
-  .busqueda .imagenes {
+  .busqueda .imagenes-normal {
     width: 94%;
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);

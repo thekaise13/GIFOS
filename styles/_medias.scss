@@ -45,11 +45,15 @@ li.crear-index {
     background: var(--bg);
     cursor: pointer;
     i.create-ajust{
+        display:block;
         position: relative;
         top: -5px;
         font-size: 12px;
         }
 
+}
+header nav .menu .ul-menu i.create-ajust {
+    display: block;
 }
 
 header nav .menu ul li a {
@@ -80,6 +84,13 @@ main .busqueda h1 {
 .busqueda .ilustracion{
     margin-top: 0px;
 
+}
+.busqueda .reactions.hidden{
+    display: none;
+
+}
+.busqueda .reactions hr.hr-data{
+    width: 360px;
 }
 
 .busqueda h3 {
@@ -197,7 +208,7 @@ footer {
 
 @media only screen and (min-device-width: 900px){
 
-    .busqueda .imagenes {
+    .busqueda .imagenes-normal {
         width: 94%;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);

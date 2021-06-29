@@ -216,7 +216,13 @@
         width: 208px;
     }
 
-    .imagenes {
+    .imagenes-error{ 
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
+
+    .imagenes-normal {
         display:grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(6,1fr);
@@ -233,5 +239,29 @@
         }
 
     }
+
+    .reactions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      hr.hr-data{
+        width: 175px;
+        height: 1px;
+        background: #9CAFC3;
+        opacity: 0.5;
+        margin-top:35px;
+        text-align: center;
+
+      }
+
+    p.p-data{
+      font-family: var(--family-principal);
+      font-size: 35px;
+      color: var(--color-secundario);
+      text-align: center;
+      line-height: 30px;
+      margin: 50px 0px 20px 0px;
+    }
+  }
 
 }
