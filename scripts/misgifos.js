@@ -12,8 +12,14 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
     .then((gifs) => {
         let gifdata = gifs.data
         let template1 = ''
-        for (let index = 0; index < 12; index++) {
-            template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
+        if (gifdata.length < 12) {
+            for (let index = 0; index < gifdata.length; index++) {
+                template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
+            }
+        } else {
+            for (let index = 0; index < 12; index++) {
+                template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
+            }
         }
         divGif.innerHTML = template1
         let conteo = 12
@@ -26,11 +32,12 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
                 }
                 Button.remove()
                 divGif.innerHTML = template1
+            } else {
+                for (let index = conteo; index < (conteo + 12); index++) {
+                    template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
+                }
+                divGif.innerHTML = template1
+                conteo += 12
             }
-            for (let index = conteo; index < (conteo + 12); index++) {
-                template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
-            }
-            divGif.innerHTML = template1
-            conteo += 12
         }
     })

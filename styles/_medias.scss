@@ -130,14 +130,14 @@ main .busqueda h1 {
 
         img {
             width: 32%;
-            height: 200px;
+            height: 260px;
             padding: 0px;
             margin: 0px;
         }
     }
     button#carousel__button--prev{
         display: block;
-        margin: 92px 10px 0px 30px;
+        margin: 109px 10px 0px 30px;
         width: 30px;
         height: 27px;
         border: 1px solid var(--color-secundario);
@@ -150,7 +150,7 @@ main .busqueda h1 {
     }
     button#carousel__button--next{
         display:block;
-        margin: 92px 30px 0px 10px;
+        margin: 109px 30px 0px 10px;
         width: 30px;
         height: 27px;
         border: 1px solid var(--color-secundario);
@@ -167,6 +167,7 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top: 84px;
     
     div{
         display: flex;

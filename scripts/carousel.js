@@ -25,7 +25,6 @@ if (width > 600) {
       let template = ''
       let templateRight = ''
       let templateLeft = ''
-      console.log(data.length);
       for (let index = 0; index < 3; index++) {
         template += ` <img src="${data[index].images.original.url}" class="carousel__item"/>`
       }
