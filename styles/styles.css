@@ -400,6 +400,14 @@ header nav .menu .ul-menu i.create-ajust {
   margin-bottom: 10px;
 }
 
+.busqueda .imagenes-normal .button-ver-mas {
+  font-family: var(--family-principal);
+  font-size: 13px;
+  color: var(--color-secundario);
+  letter-spacing: 0;
+  text-align: center;
+}
+
 .busqueda .imagenes-normal img {
   padding: 4%;
   width: 100%;
@@ -435,6 +443,33 @@ header nav .menu .ul-menu i.create-ajust {
   text-align: center;
   line-height: 30px;
   margin: 50px 0px 20px 0px;
+}
+
+.busqueda .title-mis-gifos h3.h3title {
+  font-family: var(--family-principal);
+  font-size: 25px;
+  color: var(--color-secundario);
+  text-align: center;
+  line-height: 30px;
+  margin: 10px;
+}
+
+.busqueda .title-mis-gifos img.img-title {
+  width: 25px;
+  height: 21px;
+  padding: 0px;
+}
+
+.busqueda .button-ver-mas {
+  font-family: var(--family-principal);
+  font-size: 13px;
+  color: var(--color-secundario);
+  letter-spacing: 0;
+  text-align: center;
+  border: 1px solid var(--color-secundario);
+  border-radius: 25px;
+  padding: 10px 12px;
+  margin-top: 20px;
 }
 
 .trending {

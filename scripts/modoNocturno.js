@@ -9,11 +9,11 @@ nocturno.onclick = () => {
     if (document.body.classList.contains('dark-theme')) {
         modo.innerText = "Modo Diurno"
         img.src = "images/Logo-modo-noc.svg"
-        crear.src = "images/CTA-crar-gifo-modo-noc.svg"
+        // crear.src = "images/CTA-crar-gifo-modo-noc.svg"
     } else {
         img.src = "images/logo-mobile.svg"
         modo.innerText = "Modo Nocturno"
-        crear.src = "images/button-crear-gifo.svg"
+        // crear.src = "images/button-crear-gifo.svg"
     }
 }
 

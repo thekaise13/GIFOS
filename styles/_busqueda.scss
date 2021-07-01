@@ -231,6 +231,13 @@
         align-content: center;
         margin-bottom: 10px;
 
+        .button-ver-mas{
+          font-family: var(--family-principal);
+          font-size: 13px;
+          color: var(--color-secundario);
+          letter-spacing: 0;
+          text-align: center;
+        }
 
         img {
           padding: 4%;
@@ -263,5 +270,32 @@
       margin: 50px 0px 20px 0px;
     }
   }
+  .title-mis-gifos{
+    h3.h3title {
+    font-family: var(--family-principal);
+    font-size: 25px;
+    color: var(--color-secundario);
+    text-align: center;
+    line-height: 30px;   
+    margin: 10px; 
+  }
+  img.img-title{
+    width: 25px;
+    height: 21px;
+    padding: 0px;
+  }
+
+}
+.button-ver-mas{
+  font-family: var(--family-principal);
+  font-size: 13px;
+  color: var(--color-secundario);
+  letter-spacing: 0;
+  text-align: center;
+  border: 1px solid var(--color-secundario);
+  border-radius: 25px;
+  padding:10px 12px;
+  margin-top:20px;
+}
 
 }
