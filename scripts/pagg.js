@@ -269,7 +269,9 @@ inputBox.onkeyup = (e) => {
                         let gifsDescargar = document.querySelectorAll('.icono-descargar')
                         let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
                         let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                        loadFavorite(gifsFavoritos)
+                        if (gifsFavoritos.length > 0) {
+                            loadFavorite(gifsFavoritos)
+                        }
                         addEventListenerList(gifsFavoritos)
                         addEventListenerListDownload(gifsDescargar)
                         addEventListenerMax(gifsMaximizar)
@@ -305,7 +307,9 @@ inputBox.onkeyup = (e) => {
                                     let gifsDescargar = document.querySelectorAll('.icono-descargar')
                                     let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
                                     let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                                    loadFavorite(gifsFavoritos)
+                                    if (gifsFavoritos.length > 0) {
+                                        loadFavorite(gifsFavoritos)
+                                    }
                                     addEventListenerList(gifsFavoritos)
                                     addEventListenerListDownload(gifsDescargar)
                                     addEventListenerMax(gifsMaximizar)
@@ -339,7 +343,9 @@ function select(element) {
                 let gifsDescargar = document.querySelectorAll('.icono-descargar')
                 let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
                 let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                loadFavorite(gifsFavoritos)
+                if (gifsFavoritos.length > 0) {
+                    loadFavorite(gifsFavoritos)
+                }
                 addEventListenerList(gifsFavoritos)
                 addEventListenerListDownload(gifsDescargar)
                 addEventListenerMax(gifsMaximizar)
@@ -378,7 +384,9 @@ function select(element) {
                             let gifsDescargar = document.querySelectorAll('.icono-descargar')
                             let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
                             let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                            loadFavorite(gifsFavoritos)
+                            if (gifsFavoritos.length > 0) {
+                                loadFavorite(gifsFavoritos)
+                            }
                             addEventListenerList(gifsFavoritos)
                             addEventListenerListDownload(gifsDescargar)
                             addEventListenerMax(gifsMaximizar)
