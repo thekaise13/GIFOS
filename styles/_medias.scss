@@ -225,7 +225,7 @@ footer {
                 display: none;
             }
             .gif-tarjeta {
-                height: 187px;
+                height: 200px;
             
                 .contenedor-imagen {
                     width: 100%;
@@ -266,8 +266,8 @@ footer {
                     position: relative;
                     display: flex;
                     flex-direction: row;
-                    left: 44%;
-                    top: 8px;
+                    left: 55%;
+                    top: 10px;
                     z-index: 1;
             
                     div {
@@ -276,7 +276,6 @@ footer {
                         background-position: center center;
                         background-size: contain;
                         background-repeat: no-repeat;
-                        margin-right: 8px;
                         cursor: pointer;
                     }
             

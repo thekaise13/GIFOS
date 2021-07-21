@@ -79,17 +79,16 @@
                 position: relative;
                 display: flex;
                 flex-direction: row;
-                left: 53%;
-                top: 8px;
+                left: 62%;
+                top: 14px;
                 z-index: 1;
         
                 div {
-                    height: 28px;
+                    height: 32px;
                     width: 12%;
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;
-                    margin-right: 8px;
                     cursor: pointer;
                 }
         
