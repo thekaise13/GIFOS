@@ -1,0 +1,255 @@
+.gifs-busqueda {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    padding-left: 6%;
+    padding-right: 6%;
+
+    >div {
+        width: 25%;
+    }
+    .gif-cerrar {
+        display: none;
+    }
+    .gif-tarjeta {
+        height: 187px;
+        margin: 10px;
+    
+        .contenedor-imagen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+    
+            .gif-img {
+                width: 100%;
+                height: 100%;
+                transition: 0.15s;
+            }
+        }
+    
+        .gif-botones {
+            display: none;
+        }
+        
+        .gif-informacion {
+            display: none;
+        }
+    }
+    
+    .gif-tarjeta:hover {
+    
+        .contenedor-imagen {
+            bottom: 32px;
+            background-color: var(--color-secundario);
+    
+            .gif-img {
+                opacity: 0.2;
+                transition: 0.15s;
+            }
+        }
+    
+        .gif-botones {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            left: 123px;
+            top: 8px;
+            z-index: 1;
+    
+            div {
+                height: 32px;
+                width: 32px;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 8px;
+                cursor: pointer;
+            }
+    
+            .icono-favorito {
+                background-image: url(/images/icon-fav.svg);
+            }
+            .icono-favorito:hover {
+                background-image: url(/images/icon-fav-hover.svg);
+            }
+            .icono-descargar {
+                background-image: url(/images/icon-download.svg);
+            }
+            .icono-descargar:hover {
+                background-image: url(/images/icon-download-hover.svg);
+            }
+            .icono-maximizar {
+                background-image: url(/images/icon-max-normal.svg);
+            }
+            .icono-maximizar:hover {
+                background-image: url(/images/icon-max-hover.svg);
+            }
+    
+            .gif-favorito.icono-favorito {
+                background-image: url(/images/icon-fav-active.svg);
+                background-color: var(--bg);
+                border-radius: 6px;
+                background-size: 18px 18px;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+    
+        .gif-informacion {
+            display: block;
+            position: relative;
+            text-align: left;
+            padding-left: 15px;
+            padding-right: 15px;
+            bottom: 110px;
+            z-index: 1;
+    
+            p.gif-user, h5.gif-titulo {
+                color: var(--bg);
+                font-size: 15px;
+                display: block;
+                margin-bottom: 8px;
+            }
+            h5.gif-titulo {
+                color: var(--bg);
+                display: block;
+            }
+        }
+    }
+    
+}
+
+.busqueda .imagenes div.maximizado{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    .gif-cerrar {
+        position: absolute;
+        display: block;
+        top: 7vh;
+        right: 14vw;
+
+        .icono-cerrar {
+            height: 15px;
+            width: 15px;
+            opacity: 0.7;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 8px;
+            cursor: pointer;
+            background-image: url(/images/close.svg);
+        }
+        .icono-cerrar:hover {
+            opacity: 1;
+        }
+    }
+
+    .gif-tarjeta {
+        width: 50%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+
+        .contenedor-imagen {
+            position: unset;
+            background-color: unset;
+            order: 1;
+    
+            .gif-img {
+                width: 100%;
+                height: 100%;
+                transition: 0.15s;
+                object-fit: cover;
+            }
+        }
+
+        .gif-botones {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            z-index: 1;
+            order: 3;
+            align-self: flex-end;
+            top: 82%;
+    
+            div {
+                height: 32px;
+                width: 32px;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 12px;
+                border-radius: 6px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+            }
+    
+            .icono-favorito {
+                background-image: url(/images/icon-fav.svg);
+            }
+            .icono-favorito:hover {
+                background-image: url(/images/icon-fav-hover.svg);
+            }
+            .icono-descargar {
+                background-image: url(/images/icon-download.svg);
+                margin-right: 0;
+            }
+            .icono-descargar:hover {
+                background-image: url(/images/icon-download-hover.svg);
+            }
+            .icono-maximizar {
+                display: none;
+            }
+    
+            .gif-favorito.icono-favorito {
+                background-image: url(/images/icon-fav-active.svg);
+                background-color:  var(--bg);
+                border-radius: 6px;
+                background-size: 18px 18px;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .gif-informacion {
+            display: inline-block;
+            position: unset;
+            margin-top: 16px;
+            width: 80%;
+            padding-left: 0;
+            padding-right: 15px;
+            order: 2;
+    
+            p.gif-user, h5.gif-titulo {
+                color:  var(--color-roboto);
+                font-size: 15px;
+                display: block;
+                margin-bottom: 8px;
+            }
+            h5.gif-titulo {
+                color:  var(--color-roboto);
+                display: block;
+            }
+        }
+    }
+    .gif-tarjeta:hover {
+    
+        .gif-img {
+            opacity: unset;
+            transition: unset;
+        }
+    
+        .gif-botones {
+            left: unset;
+        }
+    }
+}

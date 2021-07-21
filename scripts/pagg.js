@@ -133,24 +133,51 @@ function showSuggestions(list) {
 
 function innerTemplate(array) {
     let template1 = ''
-    for (let index = 0; index < 12; index++) {
-        template1 += `<img src="${array[index].images.original.url}" alt="${array[index].title}">`
+    if (width < 600) {
+        for (let index = 0; index < 12; index++) {
+            template1 += `<img src="${array[index].images.original.url}" alt="${array[index].title}">`
+        }
+        divGif.innerHTML = template1
+    } else {
+        for (let index = 0; index < 12; index++) {
+            template1 += `<div>
+            <div class="gif-cerrar">
+                <div class="icono-cerrar"></div>
+            </div>
+            <div class="gif-tarjeta">
+                <div class="gif-botones">
+                    <div class="icono-favorito" data-gifid="${array[index].id}"></div>
+                    <div class="icono-descargar"></div>
+                    <div class="icono-maximizar"></div>
+                </div>
+                <div class="contenedor-imagen">
+                    <img src="${array[index].images.original.url}"
+                    class="gif-img" alt="${array[index].title}">
+                </div>
+                <div class="gif-informacion">
+                    <p class="gif-user">${array[index].username}</p>
+                    <h5 class="gif-titulo">${array[index].title}</h5>
+                </div>
+            </div>
+        </div>`
+        }
+        divGif.innerHTML = template1
     }
-    divGif.innerHTML = template1
 }
 function innerError(data) {
-    divGif.innerHTML = `<p class="p-user-error">${data}</p> <img src="images/icon-busqueda-sin-resultado.svg" alt="sin-resultados" class="sin-resultados" <p class="sin-resultados-p">intenta con otra busqueda</p>`
+    divGif.innerHTML = `<p class="p-user-error">${data}</p> <img src="images/icon-busqueda-sin-resultado.svg" alt="sin-resultados" class="sin-resultados"> <p class="sin-resultados-p">intenta con otra busqueda</p>`
     reactions.classList.add("hidden")
+    trendingBusqueda.classList.remove("hidden")
     divGif.classList.remove("imagenes-normal")
     divGif.classList.add("imagenes-error")
     pagg.classList.add("hidden")
-
 }
 
 
 
 
 // getting all required elements
+let width = window.outerWidth;
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
@@ -164,6 +191,30 @@ const reactions = document.querySelector('.reactions')
 const trendingBusqueda = document.querySelector('.trending-busqueda')
 width = window.outerWidth;
 const li = document.querySelector('.li-sugg')
+
+
+function addEventListenerList(list) {
+    let gifIdArray = []
+    for (var i = 0, len = list.length; i < len; i++) {
+        list[i].addEventListener('click', (nodo) => {
+            if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
+                gifIdArray.push(nodo.toElement.attributes[1].nodeValue)
+            } else {
+                gifIdArray.splice(gifIdArray.indexOf(nodo.toElement.attributes[1].nodeValue), 1)
+            }
+            if (nodo.path[0].className === 'icono-favorito gif-favorito') {
+                nodo.path[0].className = 'icono-favorito'
+            } else {
+                nodo.path[0].className = 'icono-favorito gif-favorito'
+            }
+
+            localStorage.setItem(`giphyidsFavoritos`, gifIdArray)
+            console.log(gifIdArray);
+            console.log(nodo.path[0].className);
+        });
+    }
+}
+
 
 
 // if user press any key and release
@@ -211,8 +262,18 @@ inputBox.onkeyup = (e) => {
                     .then((res) => res.json(res))
                     .then((gif) => {
                         let urlsgif = gif.data
+                        console.log(urlsgif);
                         totalPages = Math.floor(gif.pagination.total_count / 12)
                         innerTemplate(urlsgif)
+                        let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                        let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                        let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                        let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                        loadFavorite(gifsFavoritos)
+                        addEventListenerList(gifsFavoritos)
+                        addEventListenerListDownload(gifsDescargar)
+                        addEventListenerMax(gifsMaximizar)
+                        addEventListenercerrar(gifsCerrar)
                         let pagination = document.querySelector('.pagination-buttons')
                         if (pagg.contains(pagination)) {
                             pagg.removeChild(pagination)
@@ -222,7 +283,6 @@ inputBox.onkeyup = (e) => {
                         } else {
                             totalPages = totalPages
                         }
-                        console.log(totalPages);
                         const paginationButtons = new PaginationButton(totalPages, 5);
                         if (!divGif.classList.contains("imagenes-normal")) {
                             divGif.classList.add("imagenes-normal")
@@ -231,7 +291,6 @@ inputBox.onkeyup = (e) => {
                             reactions.classList.remove("hidden")
                         }
                         paginationButtons.render(pagg)
-                        // divGif.innerHTML = template
                         reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${userData}</p>`
                         paginationButtons.onChange(e => {
                             let numButton = e.target.value
@@ -242,6 +301,15 @@ inputBox.onkeyup = (e) => {
                                 .then((gif) => {
                                     let urlsgif1 = gif.data
                                     innerTemplate(urlsgif1)
+                                    let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                                    let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                                    let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                                    let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                                    loadFavorite(gifsFavoritos)
+                                    addEventListenerList(gifsFavoritos)
+                                    addEventListenerListDownload(gifsDescargar)
+                                    addEventListenerMax(gifsMaximizar)
+                                    addEventListenercerrar(gifsCerrar)
                                 })
                         });
                     }).catch((err) => { innerError(userData) })
@@ -267,6 +335,15 @@ function select(element) {
             .then((gif) => {
                 let urlsgif = gif.data
                 innerTemplate(urlsgif)
+                let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                loadFavorite(gifsFavoritos)
+                addEventListenerList(gifsFavoritos)
+                addEventListenerListDownload(gifsDescargar)
+                addEventListenerMax(gifsMaximizar)
+                addEventListenercerrar(gifsCerrar)
                 totalPages = Math.floor(gif.pagination.total_count / 12)
                 console.log(gif);
                 if (!divGif.classList.contains("imagenes-normal")) {
@@ -297,6 +374,15 @@ function select(element) {
                         .then((gif) => {
                             let urlsgif1 = gif.data
                             innerTemplate(urlsgif1)
+                            let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                            let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                            let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                            let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                            loadFavorite(gifsFavoritos)
+                            addEventListenerList(gifsFavoritos)
+                            addEventListenerListDownload(gifsDescargar)
+                            addEventListenerMax(gifsMaximizar)
+                            addEventListenercerrar(gifsCerrar)
                         }).catch((err) => { innerError(selectData) })
                 });
             }).catch((err) => { innerError(selectData) })

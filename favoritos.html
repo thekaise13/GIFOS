@@ -11,12 +11,12 @@
         integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://kit.fontawesome.com/fe6bc57bd1.js" crossorigin="anonymous"></script>
-    <title>GIFOS</title>
+    <title>FAVORITOS</title>
 </head>
 
 <body>
     <header class="header">
-        <a href="#header"><img src="images/logo-mobile.svg" alt="logo-gifos" class="logo"></a>
+        <a href="index.html"><img src="images/logo-mobile.svg" alt="logo-gifos" class="logo"></a>
         <nav>
             <div class="menu">
                 <input type="checkbox" name="checkbox" id="toggle">
@@ -24,9 +24,9 @@
                 <span></span>
                 <span></span>
                 <ul class="ul-menu">
-                    <li class="li-menu nocturno"><a href="#" class="modo">Modo Nocturno</a> </li>
+                    <li class="li-menu nocturno"><a href="#Episodios" class="modo">Modo Nocturno</a> </li>
                     <span class="center-border "></span>
-                    <li class="li-menu fav"><a href="Favoritos.html"> Favoritos</a></li>
+                    <li class="li-menu selection"><a href="Favoritos.html"> Favoritos</a></li>
                     <span class="center-border "></span>
                     <li class="li-menu"><a href="mis-gifos.html">Mis GIFOS</a>
                     </li>
@@ -39,30 +39,17 @@
     </header>
     <main>
         <section class="busqueda">
-            <h1>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h1>
-            <img src="images/ilustra_header.svg" alt="ilustracion" class="ilustracion">
-            <div class="wrapper">
-                <div class="search-input">
-                    <i class="fas fa-search hid"></i>
-                    <a href="" target="_blank" hidden></a>
-                    <input type="text" placeholder="Busca GIFOS y mas">
-                    <hr class="hidden-hr">
-                    <div class="autocom-box">
-                        <!-- here list are inserted from javascript -->
-                    </div>
-                    <div class="icon"><i class="fas fa-search"></i></div>
-                </div>
+            <div class="title-mis-gifos">
+                <img src="./images/icon-favoritos.svg" alt="Icono favorito">
+                <h1>Favoritos</h1>
             </div>
-            <div class="trending-busqueda">
-                <h3>Trending:</h3>
-                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+            <div id="no-content" class="hidden">
+                <img src="./images/icon-fav-sin-contenido.svg" alt="Icono favorito sin contenido">
+                <p class="text-favotes">"¡Guarda tu primer GIFO en Favoritos para que se muestre aqui!" </p>
             </div>
-            <div id="return-busqueda" class="reactions"></div>
             <div id="imagenes" class="imagenes-normal">
             </div>
-            <a href="#return-busqueda">
-                <div class="pagg"></div>
-            </a>
+            <div class="div-button"></div>
         </section>
         <section class=" trending">
             <h2>Trending GIFOS</h2>
@@ -75,25 +62,23 @@
             </div>
         </section>
         <footer>
-            <div>
-                <p>Compartir en:</p>
-                <ul class="ul-footer">
-                    <li class="li-footer"><a target="_blank" href="https://www.facebook.com/DianaUribe.fm/"><i
-                                class="fab fa-facebook-f"></i></a></li>
-                    <li class="li-footer"><a target="_blank"
-                            href="https://twitter.com/DianaUribefm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
-                                class="fab fa-twitter"></i></a></li>
-                    <li class="li-footer"><a target="_blank" href="https://www.instagram.com/dianauribe.fm/"><i
-                                class="fab fa-instagram"></i></a></li>
-                </ul>
-            </div>
+            <p>Compartir en:</p>
+            <ul class="ul-footer">
+                <li class="li-footer"><a target="_blank" href="https://www.facebook.com/DianaUribe.fm/"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                <li class="li-footer"><a target="_blank"
+                        href="https://twitter.com/DianaUribefm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i
+                            class="fab fa-twitter"></i></a></li>
+                <li class="li-footer"><a target="_blank" href="https://www.instagram.com/dianauribe.fm/"><i
+                            class="fab fa-instagram"></i></a></li>
+            </ul>
             <p class="last">© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>
-    <script src="scripts/modoNocturno.js"></script>
-    <script src="scripts/pagg.js"></script>
-    <script src="scripts/carousel.js"></script>
 
+    <script src="scripts/gifs_favoritos.js"></script>
+    <script src="scripts/carousel.js"></script>
+    <script src="scripts/modoNocturno.js"></script>
 
 </body>
 

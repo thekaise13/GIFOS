@@ -1,3 +1,5 @@
+
+const video = document.querySelector('.video-container')
 const rec = document.querySelector('.rec')
 const imgPeli = document.querySelector('.img-peli')
 const pHidden = document.querySelector('.hidden')
@@ -18,6 +20,23 @@ buttonReplace2.innerText = 'FINALIZAR'
 const buttonReplace3 = document.createElement('button')
 buttonReplace3.classList.add('button-replace3', 'button-rec')
 buttonReplace3.innerText = 'SUBIR GIF'
+let gifIds = []
+gifIds.push(localStorage.getItem(`giphyids`))
+console.log(gifIds);
+
+function getStreamAndRecord() {
+    let video = document.querySelector('.video-container')
+    navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+            height: { max: 480 }
+        }
+    })
+        .then(function (stream) {
+            video.srcObject = stream;
+            video.play()
+        })
+}
 
 
 button.onclick = () => {
@@ -33,8 +52,20 @@ button.onclick = () => {
         button1.classList.toggle('button-selection')
         button2.classList.toggle('button-selection')
         button.replaceWith(buttonReplace)
-        divRec.innerHTML = `<video src="" class="video-container"></video>`
+        divRec.innerHTML = `<div>
+        <div class="contenedor-L">
+        <video src="" class="video-container"></video> 
+        <div class="gif-informacion1">
+        <img src="images/loader.svg" alt"loader">
+        <h5 class="gif-tituloL">Estamos subiendo tu GIFO</h5>
+        </div>
+        </div>
+        </div>
+    `
+        let contenedor = document.querySelector('.contenedor-L')
         let video = document.querySelector('.video-container')
+        let gifinfo = document.querySelector('.gif-informacion1')
+        console.log(gifinfo);
         video.srcObject = stream;
         video.play()
         recorder = RecordRTC(stream, {
@@ -59,6 +90,13 @@ button.onclick = () => {
             buttonReplace2.replaceWith(buttonReplace3)
         }
         buttonReplace3.onclick = () => {
+            let contenedor = document.querySelector('.contenedor-L')
+            let video = document.querySelector('.video-container')
+            let gifinfo = document.querySelector('.gif-informacion1')
+            contenedor.classList.add('contenedor-loader')
+            video.classList.add('video-loader')
+            gifinfo.classList.remove('gif-informacion1')
+            gifinfo.classList.add('gif-informacion-loader')
             button2.classList.toggle('button-selection')
             button3.classList.toggle('button-selection')
             let newForm = new FormData()
@@ -73,34 +111,71 @@ button.onclick = () => {
                 .catch(error => console.error('Error:', error))
                 .then(response => {
                     let id = response.data.id
-                    localStorage.setItem(`giphy${id}`, id)
-                    console.log(response);
+                    gifIds.push(id)
+                    localStorage.setItem(`giphyids`, gifIds)
+                    console.log(gifIds);
+                    fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&ids=${id}`)
+                        .then((res) => res.json(res))
+                        .then((gifs) => {
+                            let gifsData = gifs.data
+                            divRec.innerHTML = `
+                            <div>
+                            <div class="gif-cerrar">
+                            <div class="icono-cerrar"></div>
+                            </div>
+                            <div class="gif-tarjeta">
+                            <div class="gif-botones">
+                            <div class="icono-favorito" data-gifid="${gifsData[0].images.original.url}"></div>
+                            <div class="icono-descargar"></div>
+                            </div>
+                            <div class="contenedor-imagen">
+                            <img src="${gifsData[0].images.original.url}"
+                            class="gif-img" alt="${gifsData[0].images.original.url}}">
+                            </div>
+                            <div class="gif-informacion">
+                            <img src="images/check.svg" alt"check">
+                            <h5 class="gif-titulo">GIFO subido con exito</h5>
+                            </div>
+                            </div>
+                            </div>`
+                        })
                 })
-        }
-        pHidden.onclick = () => {
-            if (button2.classList.contains('button-selection') === false) {
-                button2.classList.toggle('button-selection')
-                button3.classList.toggle('button-selection')
-            }
-            if (rec.contains(buttonReplace3) === false) {
-                rec.insertAdjacentElement('beforeend', buttonReplace)
-            }
-            recorder.reset()
-            buttonReplace3.replaceWith(buttonReplace)
-            buttonReplace3.remove()
-            pHidden.classList.add('hidden')
-            pHidden.classList.remove('p-active')
-            imgPeli.classList.remove('img-act')
-            pHidden.innerText = `00:00:00`
-            clearInterval(chronometerCall)
-            chronometerDisplay.textContent = `00:00:00`
-            hours = `00`,
-                minutes = `00`,
-                seconds = `00`
         }
     })
 }
-
+pHidden.onclick = () => {
+    divRec.innerHTML = `<div>
+    <div class="contenedor-L">
+    <video src="" class="video-container"></video> 
+    <div class="gif-informacion1">
+    <img src="images/loader.svg" alt"loader">
+    <h5 class="gif-tituloL">Estamos subiendo tu GIFO</h5>
+    </div>
+    </div>
+    </div>
+`
+    let video = document.querySelector('.video-container')
+    getStreamAndRecord()
+    if (button2.classList.contains('button-selection') === false) {
+        button2.classList.toggle('button-selection')
+        button3.classList.toggle('button-selection')
+    }
+    if (rec.contains(buttonReplace3) === false) {
+        rec.insertAdjacentElement('beforeend', buttonReplace)
+    }
+    recorder.reset()
+    buttonReplace3.replaceWith(buttonReplace)
+    buttonReplace3.remove()
+    pHidden.classList.add('hidden')
+    pHidden.classList.remove('p-active')
+    imgPeli.classList.remove('img-act')
+    pHidden.innerText = `00:00:00`
+    clearInterval(chronometerCall)
+    chronometerDisplay.textContent = `00:00:00`
+    hours = `00`,
+        minutes = `00`,
+        seconds = `00`
+}
 
 
 
@@ -112,26 +187,18 @@ let hours = `00`,
 
 function chronometer() {
     seconds++
-
-
     if (seconds < 10) seconds = `0` + seconds
-
     if (seconds > 59) {
         seconds = `00`
         minutes++
-
         if (minutes < 10) minutes = `0` + minutes
     }
-
     if (minutes > 59) {
         minutes = `00`
         hours++
-
         if (hours < 10) hours = `0` + hours
     }
-
     chronometerDisplay.textContent = `${hours}:${minutes}:${seconds}`
-
 }
 
 buttonReplace.onclick = () => {

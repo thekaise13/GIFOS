@@ -46,6 +46,9 @@ nav {
     text-align: center;
 
 } 
+header nav .menu ul li a.plus:hover {
+    text-decoration:none;
+}
 header nav .menu ul li a {
     position: relative;
     text-decoration: none;

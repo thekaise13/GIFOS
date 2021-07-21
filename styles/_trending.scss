@@ -21,7 +21,6 @@
         text-align: center;
         line-height: 23px;
     }
-}
 
     .carousel_img {
         display: flex;
@@ -31,6 +30,122 @@
         scroll-snap-type: x mandatory;
         overflow-x: scroll;
         margin-bottom: 82px;
+        >div {
+            width: 100%;
+            padding:4px;
+        }
+        .gif-cerrar {
+            display: none;
+        }
+        .gif-tarjeta {
+            height: 250px;
+        
+            .contenedor-imagen {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+        
+                .gif-img {
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.15s;
+                }
+            }
+        
+            .gif-botones {
+                display: none;
+            }
+            
+            .gif-informacion {
+                display: none;
+            }
+        }
+        
+        .gif-tarjeta:hover {
+        
+            .contenedor-imagen {
+                bottom: 28px;
+                background-color: #572EE5;
+        
+                .gif-img {
+                    opacity: 0.6;
+                    transition: 0.15s;
+                }
+            }
+        
+            .gif-botones {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                left: 53%;
+                top: 8px;
+                z-index: 1;
+        
+                div {
+                    height: 28px;
+                    width: 12%;
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 8px;
+                    cursor: pointer;
+                }
+        
+                .icono-favorito {
+                    background-image: url(/images/icon-fav.svg);
+                }
+                .icono-favorito:hover {
+                    background-image: url(/images/icon-fav-hover.svg);
+                }
+                .icono-descargar {
+                    background-image: url(/images/icon-download.svg);
+                }
+                .icono-descargar:hover {
+                    background-image: url(/images/icon-download-hover.svg);
+                }
+                .icono-maximizar {
+                    background-image: url(/images/icon-max-normal.svg);
+                }
+                .icono-maximizar:hover {
+                    background-image: url(/images/icon-max-hover.svg);
+                }
+        
+                .gif-favorito.icono-favorito {
+                    background-image: url(/images/icon-fav-active.svg);
+                    background-color: #ffffff;
+                    border-radius: 6px;
+                    background-size: 18px 18px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+        
+            .gif-informacion {
+                display: block;
+                position: relative;
+                text-align: left;
+                padding-left: 15px;
+                padding-right: 15px;
+                bottom: 115px;
+                z-index: 1;
+        
+                p.gif-user, h5.gif-titulo {
+                    color: #ffffff;
+                    font-size: 15px;
+                    display: block;
+                    margin-bottom: -23px;
+                    width: auto;
+                    text-align: start;
+                    font-family: var(--family-segunda);
+                }
+                h5.gif-titulo {
+                    color: #ffffff;
+                    display: block;
+                }
+            }
+        }
+        
         img{
             object-fit: cover;    
             scroll-snap-align: center;
@@ -40,10 +155,150 @@
             
     }
     
+    .maximizado{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        right: 0px;
+        top: 0;
+        background-color: var(--bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    
+        .gif-cerrar {
+            position: absolute;
+            display: block;
+            top: 6vh;
+            right: 14vw;
+    
+            .icono-cerrar {
+                height: 15px;
+                width: 15px;
+                opacity: 0.7;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 8px;
+                cursor: pointer;
+                background-image: url(/images/close.svg);
+            }
+            .icono-cerrar:hover {
+                opacity: 1;
+            }
+        }
+    
+        .gif-tarjeta {
+            width: 50%;
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+    
+            .contenedor-imagen {
+                position: unset;
+                background-color: unset;
+                order: 1;
+        
+                .gif-img {
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.15s;
+                    object-fit: fill;
+                    margin-top: -11px;
+                }
+            }
+    
+            .gif-botones {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                z-index: 1;
+                order: 3;
+                align-self: flex-end;
+                top: 78vh;
+        
+                div {
+                    height: 32px;
+                    width: 32px;
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 12px;
+                    border-radius: 6px;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                }
+        
+                .icono-favorito {
+                    background-image: url(/images/icon-fav.svg);
+                }
+                .icono-favorito:hover {
+                    background-image: url(/images/icon-fav-hover.svg);
+                }
+                .icono-descargar {
+                    background-image: url(/images/icon-download.svg);
+                    margin-right: 0;
+                }
+                .icono-descargar:hover {
+                    background-image: url(/images/icon-download-hover.svg);
+                }
+                .icono-maximizar {
+                    display: none;
+                }
+        
+                .gif-favorito.icono-favorito {
+                    background-image: url(/images/icon-fav-active.svg);
+                    background-color:  var(--bg);
+                    border-radius: 6px;
+                    background-size: 18px 18px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+    
+            .gif-informacion {
+                display: inline-block;
+                position: unset;
+                margin-top: -10px;
+                width: 80%;
+                padding-left: 0;
+                padding-right: 15px;
+                order: 2;
+        
+                p.gif-user, h5.gif-titulo {
+                    color:  var(--color-roboto);
+                    font-size: 15px;
+                    display: block;
+                    margin-bottom: 8px;
+                    text-align: initial;
+                    height: unset;
+                    font-family: var(--family-segunda);
+                }
+                h5.gif-titulo {
+                    color:  var(--color-roboto);
+                    display: block;
+                }
+            }
+        }
+        .gif-tarjeta:hover {
+        
+            .gif-img {
+                opacity: unset;
+                transition: unset;
+            }
+        
+            .gif-botones {
+                left: unset;
+            }
+        }
+    }
+
 }
 .carousel button#carousel__button--next {
     display:none;
 }
 .carousel button#carousel__button--prev {
     display:none;
+}
 }
