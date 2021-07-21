@@ -3,7 +3,6 @@ const buttonRight = document.getElementById('carousel__button--next')
 const buttonLeft = document.getElementById('carousel__button--prev')
 width = window.outerWidth;
 let gifIdArray = localStorage.getItem('giphyidsFavoritos')
-gifIdArrayModified = gifIdArray.split(',')
 if (width < 600) {
   fetch(`https://api.giphy.com/v1/gifs/trending?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr`)
     .then((res) => res.json())
