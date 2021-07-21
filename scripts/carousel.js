@@ -51,9 +51,7 @@ if (width < 600) {
       let gifsDescargar = document.querySelectorAll('.icono-descargar')
       let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
       let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-      if (gifsFavoritos.length > 0) {
-        loadFavorite(gifsFavoritos)
-      }
+      loadFavorite(gifsFavoritos)
       addEventListenerList(gifsFavoritos)
       addEventListenerListDownload(gifsDescargar)
       addEventListenerMax(gifsMaximizar)
@@ -92,9 +90,7 @@ if (width < 600) {
         let gifsDescargar = document.querySelectorAll('.icono-descargar')
         let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
         let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-        if (gifsFavoritos.length > 0) {
-          loadFavorite(gifsFavoritos)
-        }
+        loadFavorite(gifsFavoritos)
         addEventListenerList(gifsFavoritos)
         addEventListenerListDownload(gifsDescargar)
         addEventListenerMax(gifsMaximizar)
@@ -133,9 +129,7 @@ if (width < 600) {
         let gifsDescargar = document.querySelectorAll('.icono-descargar')
         let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
         let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-        if (gifsFavoritos.length > 0) {
-          loadFavorite(gifsFavoritos)
-        }
+        loadFavorite(gifsFavoritos)
         addEventListenerList(gifsFavoritos)
         addEventListenerListDownload(gifsDescargar)
         addEventListenerMax(gifsMaximizar)
@@ -147,9 +141,11 @@ if (width < 600) {
 
 function loadFavorite(list) {
   let gifIdArray = localStorage.getItem('giphyidsFavoritos')
-  for (var i = 0, len = list.length; i < len; i++) {
-    if (gifIdArray.includes(list[i].attributes[1].value)) {
-      list[i].attributes[0].value = 'icono-favorito gif-favorito'
+  if (!gifIdArray != null) {
+    for (var i = 0, len = list.length; i < len; i++) {
+      if (gifIdArray.includes(list[i].attributes[1].value)) {
+        list[i].attributes[0].value = 'icono-favorito gif-favorito'
+      }
     }
   }
 }
