@@ -155,7 +155,6 @@ function addEventListenerList(list) {
   if (gifIdArray != null) {
     gifIdArray = gifIdArray.split(',')
   }
-  let gifIdArray = localStorage.getItem('giphyidsFavoritos').split(',')
   for (var i = 0, len = list.length; i < len; i++) {
     list[i].addEventListener('click', (nodo) => {
       if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
