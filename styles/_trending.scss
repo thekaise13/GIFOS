@@ -8,6 +8,7 @@
         font-size: 20px;
         color: var(--color-secundario);
         text-align: center;
+        margin-top: 50px;
         line-height: 30px;        
         font-weight: 800;
     }
@@ -38,7 +39,7 @@
             display: none;
         }
         .gif-tarjeta {
-            height: 250px;
+            height: 280px;
         
             .contenedor-imagen {
                 width: 100%;
@@ -96,7 +97,7 @@
                     background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
                 }
                 .icono-favorito:hover {
-                    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
+                    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-hover.svg);
                 }
                 .icono-descargar {
                     background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download.svg);

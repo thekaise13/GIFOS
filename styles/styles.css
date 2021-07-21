@@ -508,6 +508,7 @@ header nav .menu .ul-menu i.create-ajust {
   font-size: 20px;
   color: var(--color-secundario);
   text-align: center;
+  margin-top: 50px;
   line-height: 30px;
   font-weight: 800;
 }
@@ -549,7 +550,7 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .gif-tarjeta {
-  height: 250px;
+  height: 280px;
 }
 
 .trending .carousel_img .gif-tarjeta .contenedor-imagen {
@@ -615,7 +616,7 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-favorito:hover {
-  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
+  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-hover.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-descargar {
@@ -986,6 +987,7 @@ footer .last {
     font-size: 35px;
     text-align: center;
     line-height: 38px;
+    margin-top: 50px;
   }
   .busqueda .ilustracion {
     margin-top: 0px;
@@ -1043,7 +1045,7 @@ footer .last {
   }
   .trending .carousel button#carousel__button--prev {
     display: block;
-    margin: 109px 10px 0px 30px;
+    margin: 140px 10px 0px 30px;
     width: 30px;
     height: 27px;
     border: 1px solid var(--color-secundario);
@@ -1055,7 +1057,7 @@ footer .last {
   }
   .trending .carousel button#carousel__button--next {
     display: block;
-    margin: 109px 30px 0px 10px;
+    margin: 140px 30px 0px 10px;
     width: 30px;
     height: 27px;
     border: 1px solid var(--color-secundario);
@@ -1188,34 +1190,34 @@ footer .last {
     cursor: pointer;
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-eliminar {
-    background-image: url(images/icon-trash-normal.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-trash-normal.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-eliminar:hover {
-    background-image: url(images/icon-trash-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-trash-hover.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-favorito {
-    background-image: url(images/icon-fav.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-favorito:active {
-    background-image: url(images/icon-fav-active.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-favorito:hover {
-    background-image: url(images/icon-fav-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-hover.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-descargar {
-    background-image: url(images/icon-download.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-descargar:hover {
-    background-image: url(images/icon-download-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download-hover.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-maximizar {
-    background-image: url(images/icon-max-normal.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-max-normal.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .icono-maximizar:hover {
-    background-image: url(images/icon-max-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-max-hover.svg);
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones .gif-favorito.icono-favorito {
-    background-image: url(images/icon-fav-active.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
     background-color: #ffffff;
     border-radius: 6px;
     background-size: 18px 18px;
@@ -1276,7 +1278,7 @@ footer .last {
     background-repeat: no-repeat;
     margin-right: 8px;
     cursor: pointer;
-    background-image: url(images/close.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/close.svg);
   }
   .busqueda .imagenes-normal .maximizado .gif-cerrar .icono-cerrar:hover {
     opacity: 1;
@@ -1337,23 +1339,23 @@ footer .last {
     cursor: pointer;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-favorito {
-    background-image: url(images/icon-fav.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-favorito:hover {
-    background-image: url(images/icon-fav-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-hover.svg);
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-descargar {
-    background-image: url(images/icon-download.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download.svg);
     margin-right: 0;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-descargar:hover {
-    background-image: url(images/icon-download-hover.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download-hover.svg);
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-maximizar {
     display: none;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .gif-favorito.icono-favorito {
-    background-image: url(images/icon-fav-active.svg);
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
     background-color: var(--bg);
     border-radius: 6px;
     background-size: 18px 18px;
@@ -1659,19 +1661,19 @@ li.crear i {
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-botones .icono-favorito {
-  background-image: url(/images/icon-download.svg);
+  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download.svg);
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-botones .icono-favorito:hover {
-  background-image: url(/images/icon-download-hover.svg);
+  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download-hover.svg);
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-botones .icono-descargar {
-  background-image: url(/images/icon-link-normal.svg);
+  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-link-normal.svg);
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-botones .icono-descargar:hover {
-  background-image: url(/images/icon-link-hover.svg);
+  background-image: url(https://thekaise13.github.io/GIFOS/images/icon-link-hover.svg);
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-informacion {
