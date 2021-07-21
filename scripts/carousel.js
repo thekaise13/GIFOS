@@ -154,24 +154,25 @@ function addEventListenerList(list) {
   let gifIdArray = localStorage.getItem('giphyidsFavoritos')
   if (gifIdArray != null) {
     gifIdArray = gifIdArray.split(',')
-    for (var i = 0, len = list.length; i < len; i++) {
-      list[i].addEventListener('click', (nodo) => {
-        if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
-          gifIdArray.push(nodo.toElement.attributes[1].nodeValue)
-        } else {
-          gifIdArray.splice(gifIdArray.indexOf(nodo.toElement.attributes[1].nodeValue), 1)
-        }
-        if (nodo.path[0].className === 'icono-favorito gif-favorito') {
-          nodo.path[0].className = 'icono-favorito'
-        } else {
-          nodo.path[0].className = 'icono-favorito gif-favorito'
-        }
+  }
+  gifIdArray = []
+  for (var i = 0, len = list.length; i < len; i++) {
+    list[i].addEventListener('click', (nodo) => {
+      if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
+        gifIdArray.push(nodo.toElement.attributes[1].nodeValue)
+      } else {
+        gifIdArray.splice(gifIdArray.indexOf(nodo.toElement.attributes[1].nodeValue), 1)
+      }
+      if (nodo.path[0].className === 'icono-favorito gif-favorito') {
+        nodo.path[0].className = 'icono-favorito'
+      } else {
+        nodo.path[0].className = 'icono-favorito gif-favorito'
+      }
 
-        localStorage.setItem(`giphyidsFavoritos`, gifIdArray)
-        console.log(gifIdArray);
-        console.log(nodo.path[0].className);
-      });
-    }
+      localStorage.setItem(`giphyidsFavoritos`, gifIdArray)
+      console.log(gifIdArray);
+      console.log(nodo.path[0].className);
+    });
   }
 }
 
