@@ -231,24 +231,24 @@
                 }
         
                 .icono-favorito {
-                    background-image: url(/images/icon-fav.svg);
+                    background-image: url(images/icon-fav.svg);
                 }
                 .icono-favorito:hover {
-                    background-image: url(/images/icon-fav-hover.svg);
+                    background-image: url(images/icon-fav-hover.svg);
                 }
                 .icono-descargar {
-                    background-image: url(/images/icon-download.svg);
+                    background-image: url(images/icon-download.svg);
                     margin-right: 0;
                 }
                 .icono-descargar:hover {
-                    background-image: url(/images/icon-download-hover.svg);
+                    background-image: url(images/icon-download-hover.svg);
                 }
                 .icono-maximizar {
                     display: none;
                 }
         
                 .gif-favorito.icono-favorito {
-                    background-image: url(/images/icon-fav-active.svg);
+                    background-image: url(images/icon-fav-active.svg);
                     background-color:  var(--bg);
                     border-radius: 6px;
                     background-size: 18px 18px;
