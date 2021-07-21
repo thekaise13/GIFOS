@@ -611,27 +611,27 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-favorito {
-  background-image: url(/images/icon-fav.svg);
+  background-image: url(images/icon-fav.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-favorito:hover {
-  background-image: url(/images/icon-fav-hover.svg);
+  background-image: url(images/icon-fav-hover.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-descargar {
-  background-image: url(/images/icon-download.svg);
+  background-image: url(images/icon-download.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-descargar:hover {
-  background-image: url(/images/icon-download-hover.svg);
+  background-image: url(images/icon-download-hover.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-maximizar {
-  background-image: url(/images/icon-max-normal.svg);
+  background-image: url(images/icon-max-normal.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .icono-maximizar:hover {
-  background-image: url(/images/icon-max-hover.svg);
+  background-image: url(images/icon-max-hover.svg);
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones .gif-favorito.icono-favorito {
@@ -712,7 +712,7 @@ header nav .menu .ul-menu i.create-ajust {
   background-repeat: no-repeat;
   margin-right: 8px;
   cursor: pointer;
-  background-image: url(/images/close.svg);
+  background-image: url(images/close.svg);
 }
 
 .trending .carousel_img .maximizado .gif-cerrar .icono-cerrar:hover {
