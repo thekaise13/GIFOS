@@ -141,7 +141,7 @@ if (width < 600) {
 
 function loadFavorite(list) {
   let gifIdArray = localStorage.getItem('giphyidsFavoritos')
-  if (!gifIdArray != null) {
+  if (gifIdArray != null) {
     for (var i = 0, len = list.length; i < len; i++) {
       if (gifIdArray.includes(list[i].attributes[1].value)) {
         list[i].attributes[0].value = 'icono-favorito gif-favorito'
