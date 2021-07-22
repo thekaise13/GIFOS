@@ -1591,8 +1591,9 @@ li.crear i {
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta {
-  width: 330px;
-  height: 187px;
+  width: 430px;
+  height: 280px;
+  margin-left: 7%;
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .gif-img {
@@ -1705,22 +1706,22 @@ li.crear i {
 }
 
 .container-camara .container-rec .recorder-div h2 {
-  margin-left: 65px;
-  margin-top: 50px;
+  margin-left: 96px;
+  margin-top: 131px;
   width: 70%;
   font-family: var(--family-principal);
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   line-height: 29px;
   color: var(--color-secundario);
 }
 
 .container-camara .container-rec .recorder-div p {
-  margin-left: 65px;
+  margin-left: 91px;
   margin-bottom: 40px;
   width: 70%;
   font-family: var(--family-segunda);
-  font-size: 10px;
+  font-size: 16px;
   color: var(--color-roboto);
   text-align: center;
   line-height: 20px;
@@ -1788,7 +1789,7 @@ li.crear i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 15px 0 -38px 24%;
+  margin: 22px 0 -27px 23%;
   padding: 0px 0px 2px 24%;
   width: 100%;
 }
@@ -1796,7 +1797,8 @@ li.crear i {
 .conter .button-1, .conter .button-2, .conter .button-3 {
   background: var(--bg);
   color: #9CAFC3;
-  height: 20px;
+  height: 32px;
+  width: 32px;
   padding: 0px 5px;
   border-radius: 50%;
   border: 1px solid var(--color-secundario);
@@ -1805,7 +1807,7 @@ li.crear i {
   transition: background 0.3s ease;
   margin: 0 8px;
   font-family: var(--family-segunda);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .conter .hidden {
@@ -1813,7 +1815,7 @@ li.crear i {
 }
 
 .conter p {
-  margin: 6px 0px 0px 248px;
+  margin: 6px 0px 0px 220px;
   font-family: var(--family-principal);
   font-size: 15px;
   color: var(--color-secundario);
@@ -1824,19 +1826,19 @@ li.crear i {
 }
 
 .conter .p-active {
-  margin-left: 220px;
+  margin-left: 156px;
   cursor: pointer;
   text-decoration: underline;
   -webkit-text-decoration-color: #50E3C2;
           text-decoration-color: #50E3C2;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: bold;
 }
 
 .img-peli {
   height: 65px;
   width: 96px;
-  margin: -25px 0px 0px 25%;
+  margin: -25px 0px 0px 33%;
 }
 
 .img-act {
@@ -1844,14 +1846,14 @@ li.crear i {
 }
 
 .button-rec {
-  margin-left: 49.5%;
+  margin-left: 48.8%;
   border-radius: 25px;
   border: 1px solid var(--color-secundario);
   color: var(--color-secundario);
-  padding: 10px;
+  padding: 12px;
   font-family: var(--family-principal);
   font-weight: bold;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0;
   text-align: center;
 }
