@@ -497,6 +497,10 @@ header nav .menu .ul-menu i.create-ajust {
   width: 100%;
 }
 
+.busqueda .title-mis-gifos {
+  margin-bottom: 30px;
+}
+
 .trending {
   background: var(--bg-trending);
   padding-top: 10px;
@@ -1827,7 +1831,7 @@ li.crear i {
 .img-peli {
   height: 65px;
   width: 96px;
-  margin: -25px 0px 0px 33%;
+  margin: -10px 0px 0px 33%;
 }
 
 .img-act {
@@ -1872,7 +1876,7 @@ hr {
 }
 
 .button-replace {
-  margin-left: 50%;
+  margin-left: 49%;
 }
 
 @media only screen and (min-device-width: 900px) {

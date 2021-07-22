@@ -128,6 +128,14 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
                     }
                     Button.remove()
                     divGif.innerHTML = template1
+                    let gifseliminar = document.querySelectorAll('.icono-eliminar')
+                    let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                    let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                    let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                    addEventListenereliminar(gifseliminar)
+                    addEventListenerListDownload(gifsDescargar)
+                    addEventListenerMax(gifsMaximizar)
+                    addEventListenercerrar(gifsCerrar)
                 } else {
                     for (let index = conteo; index < (conteo + 12); index++) {
                         template1 += `<div>
@@ -152,6 +160,14 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
                 </div>`
                     }
                     divGif.innerHTML = template1
+                    let gifseliminar = document.querySelectorAll('.icono-eliminar')
+                    let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                    let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                    let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                    addEventListenereliminar(gifseliminar)
+                    addEventListenerListDownload(gifsDescargar)
+                    addEventListenerMax(gifsMaximizar)
+                    addEventListenercerrar(gifsCerrar)
                     conteo += 12
                 }
 
