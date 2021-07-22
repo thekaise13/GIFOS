@@ -152,10 +152,11 @@ function loadFavorite(list) {
 
 function addEventListenerList(list) {
   let gifIdArray = localStorage.getItem('giphyidsFavoritos')
-  if (gifIdArray != null) {
+  if (gifIdArray == null) {
+    gifIdArray = []
+  } else {
     gifIdArray = gifIdArray.split(',')
   }
-  gifIdArray = []
   for (var i = 0, len = list.length; i < len; i++) {
     list[i].addEventListener('click', (nodo) => {
       if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
