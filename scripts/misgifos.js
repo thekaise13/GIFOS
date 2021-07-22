@@ -121,7 +121,7 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
                         </div>
                         <div class="gif-informacion">
                             <p class="gif-user">${gifdata[index].username}</p>
-                            <h5 class="gif-titulo">${gifgifdata[index].title}</h5>
+                            <h5 class="gif-titulo">${gifdata[index].title}</h5>
                         </div>
                     </div>
                 </div>`

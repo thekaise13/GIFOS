@@ -1336,11 +1336,11 @@ footer .last {
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
-  .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-favorito {
-    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
+  .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-eliminar {
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-trash-normal.svg);
   }
-  .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-favorito:hover {
-    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-hover.svg);
+  .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-eliminar:hover {
+    background-image: url(https://thekaise13.github.io/GIFOS/images/icon-trash-hover.svg);
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-descargar {
     background-image: url(https://thekaise13.github.io/GIFOS/images/icon-download.svg);
@@ -1544,7 +1544,8 @@ li.crear i {
 .container-camara .container-rec .recorder-div > div {
   width: 90%;
   padding: 4px;
-  margin-left: 14px;
+  margin-left: 20px;
+  margin-top: 4px;
 }
 
 .container-camara .container-rec .recorder-div .gif-informacion1 {
@@ -1557,7 +1558,7 @@ li.crear i {
   text-align: center;
   padding-left: 5%;
   padding-right: 15px;
-  bottom: 148px;
+  bottom: 181px;
   z-index: 1;
 }
 
@@ -1571,38 +1572,31 @@ li.crear i {
 }
 
 .container-camara .container-rec .recorder-div .contenedor-loader {
-  width: 78%;
-  height: 232px;
+  width: 71%;
+  height: 321px;
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
-  bottom: 0px;
-  left: 11.3%;
+  bottom: -6px;
+  left: 15.3%;
   background-color: var(--color-secundario);
+  margin: 0px;
 }
 
-.container-camara .container-rec .recorder-div .video-loader {
+.container-camara .container-rec .recorder-div .contenedor-loader .video-loader {
   width: 100%;
-  height: 100%;
-  opacity: 0.2;
+  height: 320px;
+  opacity: 0.6;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   padding: 0px;
+  margin: 0px;
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta {
   width: 430px;
   height: 280px;
   margin-left: 7%;
-}
-
-.container-camara .container-rec .recorder-div .gif-tarjeta .gif-img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-  padding: 0px;
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .contenedor-imagen {
@@ -1612,14 +1606,14 @@ li.crear i {
      object-fit: cover;
   position: relative;
   bottom: 25px;
-  left: 13%;
+  left: 12%;
   background-color: var(--color-secundario);
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .contenedor-imagen .gif-img {
   width: 100%;
   height: 100%;
-  opacity: 0.2;
+  opacity: 0.6;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   padding: 0px;
@@ -1681,7 +1675,7 @@ li.crear i {
   text-align: center;
   padding-left: 30%;
   padding-right: 15px;
-  bottom: 163px;
+  bottom: 211px;
   z-index: 1;
 }
 
@@ -1702,7 +1696,7 @@ li.crear i {
 .container-camara .container-rec .recorder-div .video-container {
   width: 100%;
   height: 320px;
-  margin: 7px 0px 0px 1%;
+  margin: 0px;
 }
 
 .container-camara .container-rec .recorder-div h2 {
@@ -1725,11 +1719,6 @@ li.crear i {
   color: var(--color-roboto);
   text-align: center;
   line-height: 20px;
-}
-
-.container-camara .container-rec .video-container {
-  width: 100%;
-  height: 233px;
 }
 
 .container-camara .container-rec .corner-up {
