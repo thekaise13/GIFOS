@@ -54,8 +54,8 @@ li.crear {
             >div {
                 width: 90%;
                 padding:4px;
-                margin-left: 20px;
-                margin-top: 4px;
+                margin-left: 24px;
+                margin-top: 9px;
             }
             .gif-informacion1 {
                 display: none;
@@ -85,7 +85,7 @@ li.crear {
                 position: relative;
                 bottom: -6px;
                 left: 15.3% ;
-                background-color: var(--color-secundario);
+                background-color: #572EE5;
                 margin: 0px;
         
             .video-loader{
@@ -111,7 +111,7 @@ li.crear {
                     position: relative;
                     bottom: 25px;
                     left: 12%;
-                    background-color: var(--color-secundario);
+                    background-color: #572EE5;
             
                     .gif-img {
                         width: 100%;
@@ -350,7 +350,7 @@ hr {
         margin: -10px 0px 0px 36%;
     }
     .conter .img-act {
-        margin: -20px 0px 0px 4.5%;
+        margin: -10px 0px 0px 4.5%;
     }
 
     }

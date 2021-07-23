@@ -600,7 +600,7 @@ header nav .menu .ul-menu i.create-ajust {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  left: 62%;
+  left: 51%;
   top: 14px;
   z-index: 1;
 }
@@ -909,6 +909,40 @@ footer .last {
   margin-bottom: 28px;
 }
 
+main .busqueda h1 {
+  width: 530px;
+  font-size: 35px;
+  text-align: center;
+  line-height: 38px;
+  margin-top: 50px;
+}
+
+.busqueda .ilustracion {
+  margin-top: 0px;
+}
+
+.busqueda .reactions.hidden {
+  display: none;
+}
+
+.busqueda .reactions hr.hr-data {
+  width: 360px;
+}
+
+.busqueda h3 {
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.busqueda p {
+  font-size: 16px;
+  width: 360px;
+}
+
+.busqueda .wrapper {
+  margin-top: -5px;
+}
+
 @media only screen and (min-device-width: 900px) {
   header {
     height: 89px;
@@ -985,6 +1019,33 @@ footer .last {
   .crear .crearimg {
     width: 42px;
     padding-top: 9px;
+  }
+  main .busqueda h1 {
+    width: 530px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 38px;
+    margin-top: 50px;
+  }
+  .busqueda .ilustracion {
+    margin-top: 0px;
+  }
+  .busqueda .reactions.hidden {
+    display: none;
+  }
+  .busqueda .reactions hr.hr-data {
+    width: 360px;
+  }
+  .busqueda h3 {
+    font-size: 18px;
+    line-height: 16px;
+  }
+  .busqueda p {
+    font-size: 16px;
+    width: 360px;
+  }
+  .busqueda .wrapper {
+    margin-top: -5px;
   }
   .busqueda .imagenes-normal {
     width: 94%;
@@ -1190,7 +1251,7 @@ footer .last {
             order: 3;
     -ms-flex-item-align: end;
         align-self: flex-end;
-    top: 78vh;
+    top: 79vh;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones div {
     height: 32px;
@@ -1221,7 +1282,7 @@ footer .last {
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .gif-favorito.icono-favorito {
     background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
-    background-color: var(--bg);
+    background-color: #ffffff;
     border-radius: 6px;
     background-size: 18px 18px;
     background-position: center center;
@@ -1386,6 +1447,13 @@ footer .last {
     left: 55%;
     top: 13px;
   }
+  .trending .carousel_img .gif-tarjeta:hover .gif-botones {
+    left: 63%;
+    top: 14px;
+  }
+  .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones {
+    top: 79vh;
+  }
 }
 
 @media only screen and (max-device-width: 350px) {
@@ -1527,8 +1595,8 @@ li.crear i {
 .container-camara .container-rec .recorder-div > div {
   width: 90%;
   padding: 4px;
-  margin-left: 20px;
-  margin-top: 4px;
+  margin-left: 24px;
+  margin-top: 9px;
 }
 
 .container-camara .container-rec .recorder-div .gif-informacion1 {
@@ -1562,7 +1630,7 @@ li.crear i {
   position: relative;
   bottom: -6px;
   left: 15.3%;
-  background-color: var(--color-secundario);
+  background-color: #572EE5;
   margin: 0px;
 }
 
@@ -1590,7 +1658,7 @@ li.crear i {
   position: relative;
   bottom: 25px;
   left: 12%;
-  background-color: var(--color-secundario);
+  background-color: #572EE5;
 }
 
 .container-camara .container-rec .recorder-div .gif-tarjeta .contenedor-imagen .gif-img {
@@ -1865,7 +1933,7 @@ hr {
     margin: -10px 0px 0px 36%;
   }
   .conter .img-act {
-    margin: -20px 0px 0px 4.5%;
+    margin: -10px 0px 0px 4.5%;
   }
 }
 

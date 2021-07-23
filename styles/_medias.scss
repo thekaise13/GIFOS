@@ -79,38 +79,38 @@
 //     width: 42px;
 //     padding-top: 9px;
 // }
-// main .busqueda h1 {
-//     width: 530px;
-//     font-size: 35px;
-//     text-align: center;
-//     line-height: 38px;
-//     margin-top:50px;
-// }
-// .busqueda .ilustracion{
-//     margin-top: 0px;
+main .busqueda h1 {
+    width: 530px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 38px;
+    margin-top:50px;
+}
+.busqueda .ilustracion{
+    margin-top: 0px;
 
-// }
-// .busqueda .reactions.hidden{
-//     display: none;
+}
+.busqueda .reactions.hidden{
+    display: none;
 
-// }
-// .busqueda .reactions hr.hr-data{
-//     width: 360px;
-// }
+}
+.busqueda .reactions hr.hr-data{
+    width: 360px;
+}
 
-// .busqueda h3 {
-//     font-size:  18px;
-//     line-height: 16px;
-// }
-// .busqueda p {
-//     font-size:16px;
-//     width: 360px;
-// }
+.busqueda h3 {
+    font-size:  18px;
+    line-height: 16px;
+}
+.busqueda p {
+    font-size:16px;
+    width: 360px;
+}
 
-// .busqueda .wrapper {
-//     margin-top: -5px;
+.busqueda .wrapper {
+    margin-top: -5px;
 
-// }
+}
 // .trending p br {
 //     display: none;
 // }
@@ -289,6 +289,38 @@ header nav .menu span {
 .crear .crearimg {
     width: 42px;
     padding-top: 9px;
+}
+main .busqueda h1 {
+    width: 530px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 38px;
+    margin-top:50px;
+}
+.busqueda .ilustracion{
+    margin-top: 0px;
+
+}
+.busqueda .reactions.hidden{
+    display: none;
+
+}
+.busqueda .reactions hr.hr-data{
+    width: 360px;
+}
+
+.busqueda h3 {
+    font-size:  18px;
+    line-height: 16px;
+}
+.busqueda p {
+    font-size:16px;
+    width: 360px;
+}
+
+.busqueda .wrapper {
+    margin-top: -5px;
+
 }
 
 .busqueda .imagenes-normal {
@@ -482,7 +514,7 @@ header nav .menu span {
                         z-index: 1;
                         order: 3;
                         align-self: flex-end;
-                        top: 78vh;
+                        top: 79vh;
                 
                         div {
                             height: 32px;
@@ -515,7 +547,7 @@ header nav .menu span {
                 
                         .gif-favorito.icono-favorito {
                             background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
-                            background-color:  var(--bg);
+                            background-color:  #ffffff;
                             border-radius: 6px;
                             background-size: 18px 18px;
                             background-position: center center;
@@ -680,8 +712,16 @@ header nav .menu span {
 .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones {
     left: 55%;
     top: 13px;
+}
+.trending .carousel_img .gif-tarjeta:hover .gif-botones {
+    left: 63%;
+    top: 14px;
+}
+.busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones {
+    top: 79vh
 
 }
+
 
 }
 @media only screen and (max-device-width: 350px){

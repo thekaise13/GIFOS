@@ -126,7 +126,7 @@ button.onclick = () => {
                             <div class="gif-tarjeta">
                             <div class="gif-botones">
                             <div class="icono-favorito" data-gifid="${gifsData[0].images.original.url}"></div>
-                            <div class="icono-descargar"></div>
+                            <a target="_blank" href="${gifsData[0].images.original.url}"><div class="icono-descargar"></div></a>
                             </div>
                             <div class="contenedor-imagen">
                             <img src="${gifsData[0].images.original.url}"
@@ -138,6 +138,11 @@ button.onclick = () => {
                             </div>
                             </div>
                             </div>`
+
+                            let buttondownload = document.querySelector('.icono-favorito')
+                            buttondownload.onclick = (nodo) => {
+                                downloadGif(nodo.path[2].childNodes[1].children[0].attributes[1].textContent)
+                            }
                         })
                 })
         }
@@ -177,8 +182,6 @@ pHidden.onclick = () => {
         seconds = `00`
 }
 
-
-
 let hours = `00`,
     minutes = `00`,
     seconds = `00`,
@@ -210,3 +213,13 @@ buttonReplace2.onclick = () => {
 }
 
 
+
+const downloadGif = async (gifSrc, gifName) => { //https://dev.to/sbodi10/download-images-using-javascript-51a9
+    const gif = await fetch(gifSrc)
+    const gifBlob = await gif.blob()
+    const gifURL = URL.createObjectURL(gifBlob)
+    const link = document.createElement('a')
+    link.href = gifURL
+    link.download = gifName
+    link.click()
+}

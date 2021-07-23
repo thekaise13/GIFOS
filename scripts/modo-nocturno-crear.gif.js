@@ -5,6 +5,9 @@ const mode = localStorage.getItem('dark-theme')
 
 if (mode == 'active') {
     document.body.classList.toggle('dark-theme')
+    img.src = "images/Logo-modo-noc.svg"
+    peli.src = "images/pelicula-modo-noc.svg"
+    camara.src = "images/camara-modo-noc.svg"
 }
 
 nocturno.onclick = () => {
