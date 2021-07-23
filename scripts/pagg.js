@@ -133,7 +133,7 @@ function showSuggestions(list) {
 
 function innerTemplate(array) {
     let template1 = ''
-    if (width < 600) {
+    if (width < 900) {
         for (let index = 0; index < 12; index++) {
             template1 += `<img src="${array[index].images.original.url}" alt="${array[index].title}">`
         }

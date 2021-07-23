@@ -12,7 +12,7 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
         if (gifdata.length === 0) {
             divSinGif.classList.remove('hidden')
         }
-        if (width < 600) {
+        if (width < 900) {
             if (gifdata.length < 12) {
                 for (let index = 0; index < gifdata.length; index++) {
                     template1 += `<img src="${gifdata[index].images.original.url}" alt="${gifdata[index].title}">`
