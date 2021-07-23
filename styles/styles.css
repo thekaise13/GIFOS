@@ -910,17 +910,10 @@ footer .last {
 }
 
 @media only screen and (min-device-width: 900px) {
-  .busqueda .imagenes-normal {
-    width: 94%;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: (1fr)[3];
-        grid-template-rows: repeat(3, 1fr);
-  }
-  .busqueda .imagenes-normal header {
+  header {
     height: 89px;
   }
-  .busqueda .imagenes-normal .ul-menu {
+  .ul-menu {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -937,24 +930,24 @@ footer .last {
     width: 100%;
     background: var(--bg);
   }
-  .busqueda .imagenes-normal .crear {
+  .crear {
     display: block;
   }
-  .busqueda .imagenes-normal .menu {
+  .menu {
     margin: 27px 50px;
   }
-  .busqueda .imagenes-normal nav {
+  nav {
     width: 100%;
   }
-  .busqueda .imagenes-normal .logo {
+  .logo {
     width: 59px;
     height: 59px;
     margin: 0px 10px;
   }
-  .busqueda .imagenes-normal .li-menu {
+  .li-menu {
     margin: 6px 14px;
   }
-  .busqueda .imagenes-normal li.crear-index {
+  li.crear-index {
     margin-top: 8px;
     width: 35px;
     height: 35px;
@@ -963,16 +956,16 @@ footer .last {
     background: var(--bg);
     cursor: pointer;
   }
-  .busqueda .imagenes-normal li.crear-index i.create-ajust {
+  li.crear-index i.create-ajust {
     display: block;
     position: relative;
     top: -5px;
     font-size: 12px;
   }
-  .busqueda .imagenes-normal header nav .menu .ul-menu i.create-ajust {
+  header nav .menu .ul-menu i.create-ajust {
     display: block;
   }
-  .busqueda .imagenes-normal header nav .menu ul li a {
+  header nav .menu ul li a {
     text-transform: uppercase;
     font-family: var(--family-principal);
     font-size: 13px;
@@ -983,15 +976,22 @@ footer .last {
     padding: 16px 0px;
     font-weight: 800;
   }
-  .busqueda .imagenes-normal header nav .menu ul li.selection a {
+  header nav .menu ul li.selection a {
     color: #9CAFC3;
   }
-  .busqueda .imagenes-normal header nav .menu span {
+  header nav .menu span {
     display: none;
   }
-  .busqueda .imagenes-normal .crear .crearimg {
+  .crear .crearimg {
     width: 42px;
     padding-top: 9px;
+  }
+  .busqueda .imagenes-normal {
+    width: 94%;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
   }
   .busqueda .imagenes-normal > div {
     width: 100%;
