@@ -266,8 +266,8 @@ footer {
                     position: relative;
                     display: flex;
                     flex-direction: row;
-                    left: 55%;
-                    top: 10px;
+                    left: 47%;
+                    top: 13px;
                     z-index: 1;
             
                     div {
@@ -500,6 +500,14 @@ footer {
 
 }
 
+@media only screen and (min-device-width: 1200px){
+.busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones {
+    left: 55%;
+    top: 13px;
+
+}
+
+}
 @media only screen and (max-device-width: 350px){
     .busqueda .ilustracion {
         width: 200px;

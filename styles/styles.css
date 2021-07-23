@@ -606,8 +606,8 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .gif-tarjeta:hover .gif-botones div {
-  height: 28px;
-  width: 28px;
+  height: 32px;
+  width: 32px;
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1180,8 +1180,8 @@ footer .last {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    left: 55%;
-    top: 10px;
+    left: 47%;
+    top: 13px;
     z-index: 1;
   }
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones div {
@@ -1408,6 +1408,13 @@ footer .last {
     font-size: 22px;
     color: #50E3C2;
     line-height: 25px;
+  }
+}
+
+@media only screen and (min-device-width: 1200px) {
+  .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones {
+    left: 55%;
+    top: 13px;
   }
 }
 
