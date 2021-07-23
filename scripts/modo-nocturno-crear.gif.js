@@ -2,18 +2,18 @@ const nocturno = document.querySelector('.nocturno')
 const camara = document.querySelector('.img-camara')
 const peli = document.querySelector('.img-peli')
 const mode = localStorage.getItem('dark-theme')
+const img = document.querySelector('.logo')
+const modo = document.querySelector('.modo')
 
 if (mode == 'active') {
     document.body.classList.toggle('dark-theme')
     img.src = "images/Logo-modo-noc.svg"
     peli.src = "images/pelicula-modo-noc.svg"
     camara.src = "images/camara-modo-noc.svg"
+    modo.innerText = "Modo Diurno"
 }
 
 nocturno.onclick = () => {
-    const img = document.querySelector('.logo')
-    const crear = document.querySelector('.crearimg')
-    const modo = document.querySelector('.modo')
     document.body.classList.toggle('dark-theme')
     if (document.body.classList.contains('dark-theme')) {
         modo.innerText = "Modo Diurno"

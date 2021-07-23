@@ -1,9 +1,11 @@
 //modo nocturno
 const nocturno = document.querySelector('.nocturno')
 const mode = localStorage.getItem('dark-theme')
+const modo = document.querySelector('.modo')
 console.log(mode);
 if (mode == 'active') {
     document.body.classList.toggle('dark-theme')
+    modo.innerText = "Modo Diurno"
 }
 
 nocturno.onclick = () => {
