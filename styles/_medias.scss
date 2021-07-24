@@ -377,7 +377,7 @@ main .busqueda h1 {
                     position: relative;
                     display: flex;
                     flex-direction: row;
-                    left: 47%;
+                    left: 40%;
                     top: 13px;
                     z-index: 1;
             
@@ -716,7 +716,7 @@ main .busqueda h1 {
 
 @media only screen and (min-device-width: 1200px){
 .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones {
-    left: 65%;
+    left: 56%;
     top: 13px;
 }
 busqueda .imagenes-normal .maximizado.gif-tarjeta:hover .gif-botones {

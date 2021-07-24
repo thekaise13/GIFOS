@@ -769,7 +769,7 @@ header nav .menu .ul-menu i.create-ajust {
           order: 3;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  top: 78vh;
+  top: 79vh;
 }
 
 .trending .carousel_img .maximizado .gif-tarjeta .gif-botones div {
@@ -1102,7 +1102,7 @@ main .busqueda h1 {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    left: 47%;
+    left: 40%;
     top: 13px;
     z-index: 1;
   }
@@ -1449,7 +1449,7 @@ main .busqueda h1 {
 
 @media only screen and (min-device-width: 1200px) {
   .busqueda .imagenes-normal .gif-tarjeta:hover .gif-botones {
-    left: 65%;
+    left: 56%;
     top: 13px;
   }
   busqueda .imagenes-normal .maximizado.gif-tarjeta:hover .gif-botones {
