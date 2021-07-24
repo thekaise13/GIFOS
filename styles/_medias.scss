@@ -458,7 +458,8 @@ main .busqueda h1 {
                 position: fixed;
                 width: 100%;
                 height: 100vh;
-                top: 0;
+                top: 0px;
+                left: 0px;
                 background-color: var(--bg);
                 display: flex;
                 justify-content: center;
@@ -515,7 +516,7 @@ main .busqueda h1 {
                         order: 3;
                         align-self: flex-end;
                         top: 79vh;
-                        left: 65%;
+                        left: 67%;
                 
                         div {
                             height: 32px;
@@ -728,7 +729,7 @@ busqueda .imagenes-normal .maximizado.gif-tarjeta:hover .gif-botones {
 }
 .trending .carousel_img .maximizado .gif-tarjeta:hover .gif-botones {
     left: 63%;
-    top: 78vh;
+    top: 79vh;
 }
 
 
