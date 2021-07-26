@@ -770,6 +770,7 @@ header nav .menu .ul-menu i.create-ajust {
   -ms-flex-item-align: end;
       align-self: flex-end;
   top: 79vh;
+  left: 68.8%;
 }
 
 .trending .carousel_img .maximizado .gif-tarjeta .gif-botones div {
@@ -852,7 +853,7 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .maximizado .gif-tarjeta:hover .gif-botones div {
-  margin: 0px;
+  margin: 0px 12px 0px 0px;
 }
 
 .trending .carousel button#carousel__button--next {
@@ -1257,7 +1258,7 @@ main .busqueda h1 {
     -ms-flex-item-align: end;
         align-self: flex-end;
     top: 79vh;
-    left: 67%;
+    left: 69%;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones div {
     height: 32px;
@@ -1269,7 +1270,6 @@ main .busqueda h1 {
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    margin: 0px;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta .gif-botones .icono-favorito {
     background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav.svg);
@@ -1327,10 +1327,10 @@ main .busqueda h1 {
     transition: unset;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta:hover .gif-botones {
-    left: unset;
+    left: 69%;
   }
   .busqueda .imagenes-normal .maximizado .gif-tarjeta:hover .gif-botones div {
-    margin: 0px;
+    margin: 0px 12px 0px 0px;
   }
   .busqueda .imagenes-error p.p-user-error {
     margin-top: 75px;
