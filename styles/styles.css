@@ -808,7 +808,7 @@ header nav .menu .ul-menu i.create-ajust {
 
 .trending .carousel_img .maximizado .gif-tarjeta .gif-botones .gif-favorito.icono-favorito {
   background-image: url(https://thekaise13.github.io/GIFOS/images/icon-fav-active.svg);
-  background-color: var(--bg);
+  background-color: #ffffff;
   border-radius: 6px;
   background-size: 18px 18px;
   background-position: center center;
@@ -849,7 +849,7 @@ header nav .menu .ul-menu i.create-ajust {
 }
 
 .trending .carousel_img .maximizado .gif-tarjeta:hover .gif-botones {
-  left: unset;
+  left: 68.8%;
 }
 
 .trending .carousel_img .maximizado .gif-tarjeta:hover .gif-botones div {
@@ -1697,8 +1697,8 @@ li.crear i {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  left: 88%;
-  top: 9px;
+  left: 89%;
+  top: 14px;
   z-index: 1;
 }
 
@@ -1734,7 +1734,7 @@ li.crear i {
   text-align: center;
   padding-left: 30%;
   padding-right: 15px;
-  bottom: 211px;
+  bottom: 203px;
   z-index: 1;
 }
 
