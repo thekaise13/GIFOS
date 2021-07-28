@@ -915,40 +915,6 @@ footer .last {
   margin-bottom: 28px;
 }
 
-.busqueda h1 {
-  width: 530px;
-  font-size: 35px;
-  text-align: center;
-  line-height: 38px;
-  margin-top: 50px;
-}
-
-.busqueda .ilustracion {
-  margin-top: 0px;
-}
-
-.busqueda .reactions.hidden {
-  display: none;
-}
-
-.busqueda .reactions hr.hr-data {
-  width: 360px;
-}
-
-.busqueda h3 {
-  font-size: 18px;
-  line-height: 16px;
-}
-
-.busqueda p {
-  font-size: 16px;
-  width: 360px;
-}
-
-.busqueda .wrapper {
-  margin-top: -5px;
-}
-
 @media only screen and (min-device-width: 900px) {
   header {
     height: 89px;
