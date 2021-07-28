@@ -180,7 +180,7 @@ function addEventListenereliminarFav(list) {
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener('click', (nodo) => {
             nodo.path[0].parentElement.parentElement.parentElement.remove()
-            stringIDs = stringIDs.replace(`,${nodo.toElement.attributes[1].nodeValue}`, '')
+            stringIDs = stringIDs.replace(`,${nodo.path[0].attributes[1].value}`, '')
             localStorage.setItem(`giphyidsFavoritos`, stringIDs)
         });
     }

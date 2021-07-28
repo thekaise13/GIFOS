@@ -180,10 +180,10 @@ function addEventListenereliminar(list) {
 
     for (var i = 0, len = list.length; i < len; i++) {
         list[i].addEventListener('click', (nodo) => {
-            console.log(nodo);
+            let stringIDs = localStorage.getItem('giphyids')
             nodo.path[0].parentElement.parentElement.parentElement.remove()
-            console.log(nodo.toElement.attributes[1].nodeValue);
-            stringIDs = stringIDs.replace(`,${nodo.toElement.attributes[1].nodeValue}`, '')
+            console.log(nodo.path[0].attributes[1].value);
+            stringIDs = stringIDs.replace(`,${nodo.path[0].attributes[1].value}`, '')
             localStorage.setItem(`giphyids`, stringIDs)
         });
     }
