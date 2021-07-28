@@ -1600,6 +1600,10 @@ li.crear i {
   margin-left: 3%;
 }
 
+.container-camara .container-rec .recorder-div .tittle .gifos {
+  color: #00fff2;
+}
+
 .container-camara .container-rec .recorder-div > div {
   width: 90%;
   padding: 4px;
@@ -1636,8 +1640,7 @@ li.crear i {
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
-  bottom: -6px;
-  left: 15.3%;
+  left: 14.5%;
   background-color: #572EE5;
   margin: 0px;
 }
@@ -1949,7 +1952,7 @@ hr {
   .conter .img-peli {
     height: 65px;
     width: 96px;
-    margin: -25px 0px 0px 29%;
+    margin: -25px 0px 0px 32%;
   }
   .conter .img-act {
     margin: -25px 0px 0px 10.5%;
