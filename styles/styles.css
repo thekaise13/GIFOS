@@ -485,7 +485,7 @@ header nav .menu .ul-menu i.create-ajust {
   color: #50E3C2;
   line-height: 33px;
   width: 100%;
-  margin: 50px 20% 20px 0px;
+  margin: 50px 0px 20px 0px;
 }
 
 .busqueda #no-content p.text-favotes {
@@ -494,7 +494,7 @@ header nav .menu .ul-menu i.create-ajust {
   font-size: 22px;
   color: #50E3C2;
   line-height: 33px;
-  margin: 50px 0px 20px 0px;
+  margin: 50px 20% 20px 0px;
   width: 63%;
 }
 
