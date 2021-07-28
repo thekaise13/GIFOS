@@ -10,6 +10,7 @@ const verMas = document.querySelector('.ver-mas')
 const pagg = document.querySelector('.pagg')
 const hr = document.querySelector('.hidden-hr')
 const reactions = document.querySelector('.reactions')
+const reactions_error = document.getElementById("return-busqueda")
 const trendingBusqueda = document.querySelector('.trending-busqueda')
 width = window.outerWidth;
 const li = document.querySelector('.li-sugg')
@@ -115,7 +116,7 @@ inputBox.onkeyup = (e) => {
                 searchWrapper.classList.remove("active");
                 hr.classList.remove("active");
                 icon.innerHTML = '<i class="fas fa-search"></i>'
-                if (width > 600) {
+                if (width > 900) {
                     trendingBusqueda.classList.add("hidden")
                 }
 
@@ -360,9 +361,9 @@ function innerTemplate(array) {
     }
 }
 function innerError(data) {
-    divGif.innerHTML = `<p class="p-user-error">${data}</p> <img src="images/icon-busqueda-sin-resultado.svg" alt="sin-resultados" class="sin-resultados"> <p class="sin-resultados-p">intenta con otra busqueda</p>`
-    reactions.classList.add("hidden")
-    trendingBusqueda.classList.remove("hidden")
+    reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${data}</p>`
+    divGif.innerHTML = `<img src="images/icon-busqueda-sin-resultado.svg" alt="sin-resultados" class="sin-resultados"> <p class="sin-resultados-p">intenta con otra busqueda</p>`
+    // reactions_error.classList.add("hidden")
     divGif.classList.remove("imagenes-normal")
     divGif.classList.add("imagenes-error")
     pagg.classList.add("hidden")
