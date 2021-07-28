@@ -7,9 +7,7 @@ if (width < 900) {
   fetch(`https://api.giphy.com/v1/gifs/trending?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr`)
     .then((res) => res.json())
     .then((gifs) => {
-      console.log(gifs);
       const data = gifs.data
-      console.log(data);
       let template = ''
       for (let index = 0; index < data.length; index++) {
         template += ` <img src="${data[index].images.original.url}" alt="${data[index].title}" class="carousel__item"/> `
@@ -159,20 +157,17 @@ function addEventListenerList(list) {
   }
   for (var i = 0, len = list.length; i < len; i++) {
     list[i].addEventListener('click', (nodo) => {
-      if (!gifIdArray.includes(nodo.toElement.attributes[1].nodeValue)) {
-        gifIdArray.push(nodo.toElement.attributes[1].nodeValue)
+      if (!gifIdArray.includes(nodo.path[0].attributes[1].value)) {
+        gifIdArray.push(nodo.path[0].attributes[1].value)
       } else {
-        gifIdArray.splice(gifIdArray.indexOf(nodo.toElement.attributes[1].nodeValue), 1)
+        gifIdArray.splice(gifIdArray.indexOf(nodo.path[0].attributes[1].value), 1)
       }
       if (nodo.path[0].className === 'icono-favorito gif-favorito') {
         nodo.path[0].className = 'icono-favorito'
       } else {
         nodo.path[0].className = 'icono-favorito gif-favorito'
       }
-
       localStorage.setItem(`giphyidsFavoritos`, gifIdArray)
-      console.log(gifIdArray);
-      console.log(nodo.path[0].className);
     });
   }
 }
@@ -206,7 +201,7 @@ function addEventListenerListDownload(list) {
 }
 
 
-const downloadGif = async (gifSrc, gifName) => { //https://dev.to/sbodi10/download-images-using-javascript-51a9
+const downloadGif = async (gifSrc, gifName) => {
   const gif = await fetch(gifSrc)
   const gifBlob = await gif.blob()
   const gifURL = URL.createObjectURL(gifBlob)

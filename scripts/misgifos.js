@@ -7,7 +7,6 @@ fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&id
     .then((res) => res.json(res))
     .then((gifs) => {
         let gifdata = gifs.data
-        console.log(gifs);
         let template1 = ''
         if (gifdata.length === 0) {
             divSinGif.classList.remove('hidden')

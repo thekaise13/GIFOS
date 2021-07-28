@@ -65,7 +65,6 @@ button.onclick = () => {
         let contenedor = document.querySelector('.contenedor-L')
         let video = document.querySelector('.video-container')
         let gifinfo = document.querySelector('.gif-informacion1')
-        console.log(gifinfo);
         video.srcObject = stream;
         video.play()
         recorder = RecordRTC(stream, {
@@ -113,7 +112,6 @@ button.onclick = () => {
                     let id = response.data.id
                     gifIds.push(id)
                     localStorage.setItem(`giphyids`, gifIds)
-                    console.log(gifIds);
                     fetch(`https://api.giphy.com/v1/gifs?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&ids=${id}`)
                         .then((res) => res.json(res))
                         .then((gifs) => {

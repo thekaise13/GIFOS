@@ -2,7 +2,7 @@
 const nocturno = document.querySelector('.nocturno')
 const mode = localStorage.getItem('dark-theme')
 const modo = document.querySelector('.modo')
-console.log(mode);
+
 if (mode == 'active') {
     document.body.classList.toggle('dark-theme')
     modo.innerText = "Modo Diurno"
@@ -20,7 +20,6 @@ nocturno.onclick = () => {
         img.src = "images/logo-mobile.svg"
         modo.innerText = "Modo Nocturno"
         localStorage.setItem('dark-theme', 'deactive')
-        // crear.src = "images/button-crear-gifo.svg"
     }
 }
 

@@ -1,3 +1,198 @@
+
+let width = window.outerWidth;
+const searchWrapper = document.querySelector(".search-input");
+const inputBox = searchWrapper.querySelector("input");
+const suggBox = searchWrapper.querySelector(".autocom-box");
+const icon = searchWrapper.querySelector(".icon");
+let linkTag = searchWrapper.querySelector("a");
+let divGif = document.getElementById("imagenes")
+const verMas = document.querySelector('.ver-mas')
+const pagg = document.querySelector('.pagg')
+const hr = document.querySelector('.hidden-hr')
+const reactions = document.querySelector('.reactions')
+const trendingBusqueda = document.querySelector('.trending-busqueda')
+width = window.outerWidth;
+const li = document.querySelector('.li-sugg')
+
+
+// if user press any key and release
+inputBox.onkeyup = (e) => {
+    let userData = e.target.value;
+    fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
+        .then((res) => res.json(res))
+        .then((gifs) => {
+            console.log(gifs);
+            let suggestions = []
+            let datagif = gifs.data
+            for (let index = 0; index < datagif.length; index++) {
+                suggestions.push(datagif[index].name)
+            }
+            let userData = e.target.value; //user enetered data
+            let emptyArray = [];
+            if (userData) {
+                emptyArray = suggestions.filter((data) => {
+                    //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+                    return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+                });
+                emptyArray = emptyArray.map((data) => {
+                    // passing return data inside li tag
+                    return data = '<li class="li-sugg"><i class="fas fa-search"></i>' + data + '</li>';
+                });
+                searchWrapper.classList.add("active");
+                icon.innerHTML = '<i class="fa fa-times"></i>' //show autocomplete box
+                hr.classList.add("active")
+                showSuggestions(emptyArray);
+                let allList = suggBox.querySelectorAll("li");
+                for (let i = 0; i < allList.length; i++) {
+                    //adding onclick attribute in all li tag
+                    allList[i].setAttribute("onclick", "select(this)");
+                }
+                icon.firstChild.setAttribute("onclick", "select(this)")
+            } else {
+                hr.classList.remove("active");
+                searchWrapper.classList.remove("active");
+                icon.innerHTML = '<i class="fas fa-search"></i>' //hide autocomplete box
+            }
+            if (e.keyCode === 13) {
+                fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
+                    .then((res) => res.json(res))
+                    .then((gif) => {
+                        let urlsgif = gif.data
+                        totalPages = Math.floor(gif.pagination.total_count / 12)
+                        innerTemplate(urlsgif)
+                        let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                        let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                        let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                        let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                        if (gifsFavoritos.length > 0) {
+                            loadFavorite(gifsFavoritos)
+                        }
+                        addEventListenerList(gifsFavoritos)
+                        addEventListenerListDownload(gifsDescargar)
+                        addEventListenerMax(gifsMaximizar)
+                        addEventListenercerrar(gifsCerrar)
+                        let pagination = document.querySelector('.pagination-buttons')
+                        if (pagg.contains(pagination)) {
+                            pagg.removeChild(pagination)
+                        }
+                        if (totalPages >= 416) {
+                            totalPages = 416
+                        } else {
+                            totalPages = totalPages
+                        }
+                        const paginationButtons = new PaginationButton(totalPages, 5);
+                        if (!divGif.classList.contains("imagenes-normal")) {
+                            divGif.classList.add("imagenes-normal")
+                            divGif.classList.remove("imagenes-error")
+                            pagg.classList.remove("hidden")
+                            reactions.classList.remove("hidden")
+                        }
+                        paginationButtons.render(pagg)
+                        reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${userData}</p>`
+                        paginationButtons.onChange(e => {
+                            let numButton = e.target.value
+                            numButton = (numButton * 12) - 12
+                            console.log('-- changed', numButton)
+                            fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}&offset=${numButton}&limit=12`)
+                                .then((res) => res.json(res))
+                                .then((gif) => {
+                                    let urlsgif1 = gif.data
+                                    innerTemplate(urlsgif1)
+                                    let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                                    let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                                    let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                                    let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                                    if (gifsFavoritos.length > 0) {
+                                        loadFavorite(gifsFavoritos)
+                                    }
+                                    addEventListenerList(gifsFavoritos)
+                                    addEventListenerListDownload(gifsDescargar)
+                                    addEventListenerMax(gifsMaximizar)
+                                    addEventListenercerrar(gifsCerrar)
+                                })
+                        });
+                    }).catch((err) => { innerError(userData) })
+                searchWrapper.classList.remove("active");
+                hr.classList.remove("active");
+                icon.innerHTML = '<i class="fas fa-search"></i>'
+                if (width > 600) {
+                    trendingBusqueda.classList.add("hidden")
+                }
+
+            }
+        }).catch((err) => { innerError(userData) })
+}
+
+function select(element) {
+    let selectData = element.textContent;
+    let times = document.querySelector('.fa fa-times')
+    inputBox.value = selectData;
+    icon.onclick = () => {
+        inputBox.value = selectData;
+        fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}`)
+            .then((res) => res.json(res))
+            .then((gif) => {
+                let urlsgif = gif.data
+                innerTemplate(urlsgif)
+                let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                if (gifsFavoritos.length > 0) {
+                    loadFavorite(gifsFavoritos)
+                }
+                addEventListenerList(gifsFavoritos)
+                addEventListenerListDownload(gifsDescargar)
+                addEventListenerMax(gifsMaximizar)
+                addEventListenercerrar(gifsCerrar)
+                totalPages = Math.floor(gif.pagination.total_count / 12)
+                if (!divGif.classList.contains("imagenes-normal")) {
+                    divGif.classList.add("imagenes-normal")
+                    divGif.classList.remove("imagenes-error")
+                    pagg.classList.remove("hidden")
+                    reactions.classList.remove("hidden")
+                }
+                reactions.innerHTML = ` <hr class="hr-data"><p class="p-data">${selectData}</p>`
+                let pagination = document.querySelector('.pagination-buttons')
+                if (pagg.contains(pagination)) {
+                    pagg.removeChild(pagination)
+                }
+                if (totalPages >= 416) {
+                    totalPages = 416
+                } else {
+                    totalPages = totalPages
+                }
+                const paginationButtons = new PaginationButton(totalPages, 5);
+                paginationButtons.render(pagg)
+                paginationButtons.onChange(e => {
+                    let numButton = e.target.value
+                    numButton = (numButton * 12) - 12
+                    fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}&offset=${numButton}&limit=12`)
+                        .then((res) => res.json(res))
+                        .then((gif) => {
+                            let urlsgif1 = gif.data
+                            innerTemplate(urlsgif1)
+                            let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                            let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                            let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                            let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                            if (gifsFavoritos.length > 0) {
+                                loadFavorite(gifsFavoritos)
+                            }
+                            addEventListenerList(gifsFavoritos)
+                            addEventListenerListDownload(gifsDescargar)
+                            addEventListenerMax(gifsMaximizar)
+                            addEventListenercerrar(gifsCerrar)
+                        }).catch((err) => { innerError(selectData) })
+                });
+            }).catch((err) => { innerError(selectData) })
+    }
+    searchWrapper.classList.remove("active");
+    hr.classList.remove("active");
+    icon.innerHTML = '<i class="fas fa-search"></i>'
+}
+
+
 const pageNumbers = (total, max, current) => {
     const half = Math.floor(max / 2);
     let to = max;
@@ -174,25 +369,6 @@ function innerError(data) {
 }
 
 
-
-
-// getting all required elements
-let width = window.outerWidth;
-const searchWrapper = document.querySelector(".search-input");
-const inputBox = searchWrapper.querySelector("input");
-const suggBox = searchWrapper.querySelector(".autocom-box");
-const icon = searchWrapper.querySelector(".icon");
-let linkTag = searchWrapper.querySelector("a");
-let divGif = document.getElementById("imagenes")
-const verMas = document.querySelector('.ver-mas')
-const pagg = document.querySelector('.pagg')
-const hr = document.querySelector('.hidden-hr')
-const reactions = document.querySelector('.reactions')
-const trendingBusqueda = document.querySelector('.trending-busqueda')
-width = window.outerWidth;
-const li = document.querySelector('.li-sugg')
-
-
 function addEventListenerList(list) {
     let gifIdArray = []
     for (var i = 0, len = list.length; i < len; i++) {
@@ -213,189 +389,4 @@ function addEventListenerList(list) {
             console.log(nodo.path[0].className);
         });
     }
-}
-
-
-
-// if user press any key and release
-inputBox.onkeyup = (e) => {
-    let userData = e.target.value;
-    fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
-        .then((res) => res.json(res))
-        .then((gifs) => {
-            console.log(gifs);
-            let suggestions = []
-            let datagif = gifs.data
-            console.log(datagif[0]);
-            for (let index = 0; index < datagif.length; index++) {
-                suggestions.push(datagif[index].name)
-            }
-            console.log(suggestions)
-            let userData = e.target.value; //user enetered data
-            let emptyArray = [];
-            if (userData) {
-                emptyArray = suggestions.filter((data) => {
-                    //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-                    return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
-                });
-                emptyArray = emptyArray.map((data) => {
-                    // passing return data inside li tag
-                    return data = '<li class="li-sugg"><i class="fas fa-search"></i>' + data + '</li>';
-                });
-                searchWrapper.classList.add("active");
-                icon.innerHTML = '<i class="fa fa-times"></i>' //show autocomplete box
-                hr.classList.add("active")
-                showSuggestions(emptyArray);
-                let allList = suggBox.querySelectorAll("li");
-                for (let i = 0; i < allList.length; i++) {
-                    //adding onclick attribute in all li tag
-                    allList[i].setAttribute("onclick", "select(this)");
-                }
-                icon.firstChild.setAttribute("onclick", "select(this)")
-            } else {
-                hr.classList.remove("active");
-                searchWrapper.classList.remove("active");
-                icon.innerHTML = '<i class="fas fa-search"></i>' //hide autocomplete box
-            }
-            if (e.keyCode === 13) {
-                fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
-                    .then((res) => res.json(res))
-                    .then((gif) => {
-                        let urlsgif = gif.data
-                        console.log(urlsgif);
-                        totalPages = Math.floor(gif.pagination.total_count / 12)
-                        innerTemplate(urlsgif)
-                        let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                        let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                        let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                        let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                        if (gifsFavoritos.length > 0) {
-                            loadFavorite(gifsFavoritos)
-                        }
-                        addEventListenerList(gifsFavoritos)
-                        addEventListenerListDownload(gifsDescargar)
-                        addEventListenerMax(gifsMaximizar)
-                        addEventListenercerrar(gifsCerrar)
-                        let pagination = document.querySelector('.pagination-buttons')
-                        if (pagg.contains(pagination)) {
-                            pagg.removeChild(pagination)
-                        }
-                        if (totalPages >= 416) {
-                            totalPages = 416
-                        } else {
-                            totalPages = totalPages
-                        }
-                        const paginationButtons = new PaginationButton(totalPages, 5);
-                        if (!divGif.classList.contains("imagenes-normal")) {
-                            divGif.classList.add("imagenes-normal")
-                            divGif.classList.remove("imagenes-error")
-                            pagg.classList.remove("hidden")
-                            reactions.classList.remove("hidden")
-                        }
-                        paginationButtons.render(pagg)
-                        reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${userData}</p>`
-                        paginationButtons.onChange(e => {
-                            let numButton = e.target.value
-                            numButton = (numButton * 12) - 12
-                            console.log('-- changed', numButton)
-                            fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}&offset=${numButton}&limit=12`)
-                                .then((res) => res.json(res))
-                                .then((gif) => {
-                                    let urlsgif1 = gif.data
-                                    innerTemplate(urlsgif1)
-                                    let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                                    let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                                    let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                                    let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                                    if (gifsFavoritos.length > 0) {
-                                        loadFavorite(gifsFavoritos)
-                                    }
-                                    addEventListenerList(gifsFavoritos)
-                                    addEventListenerListDownload(gifsDescargar)
-                                    addEventListenerMax(gifsMaximizar)
-                                    addEventListenercerrar(gifsCerrar)
-                                })
-                        });
-                    }).catch((err) => { innerError(userData) })
-                searchWrapper.classList.remove("active");
-                hr.classList.remove("active");
-                icon.innerHTML = '<i class="fas fa-search"></i>'
-                if (width > 600) {
-                    trendingBusqueda.classList.add("hidden")
-                }
-
-            }
-        }).catch((err) => { innerError(userData) })
-}
-
-function select(element) {
-    let selectData = element.textContent;
-    let times = document.querySelector('.fa fa-times')
-    inputBox.value = selectData;
-    icon.onclick = () => {
-        inputBox.value = selectData;
-        fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}`)
-            .then((res) => res.json(res))
-            .then((gif) => {
-                let urlsgif = gif.data
-                innerTemplate(urlsgif)
-                let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                if (gifsFavoritos.length > 0) {
-                    loadFavorite(gifsFavoritos)
-                }
-                addEventListenerList(gifsFavoritos)
-                addEventListenerListDownload(gifsDescargar)
-                addEventListenerMax(gifsMaximizar)
-                addEventListenercerrar(gifsCerrar)
-                totalPages = Math.floor(gif.pagination.total_count / 12)
-                console.log(gif);
-                if (!divGif.classList.contains("imagenes-normal")) {
-                    divGif.classList.add("imagenes-normal")
-                    divGif.classList.remove("imagenes-error")
-                    pagg.classList.remove("hidden")
-                    reactions.classList.remove("hidden")
-                }
-                reactions.innerHTML = ` <hr class="hr-data"><p class="p-data">${selectData}</p>`
-                let pagination = document.querySelector('.pagination-buttons')
-                if (pagg.contains(pagination)) {
-                    pagg.removeChild(pagination)
-                }
-                if (totalPages >= 416) {
-                    totalPages = 416
-                } else {
-                    totalPages = totalPages
-                }
-                console.log(totalPages);
-                const paginationButtons = new PaginationButton(totalPages, 5);
-                paginationButtons.render(pagg)
-                paginationButtons.onChange(e => {
-                    let numButton = e.target.value
-                    numButton = (numButton * 12) - 12
-                    console.log('-- changed', numButton)
-                    fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}&offset=${numButton}&limit=12`)
-                        .then((res) => res.json(res))
-                        .then((gif) => {
-                            let urlsgif1 = gif.data
-                            innerTemplate(urlsgif1)
-                            let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                            let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                            let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                            let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                            if (gifsFavoritos.length > 0) {
-                                loadFavorite(gifsFavoritos)
-                            }
-                            addEventListenerList(gifsFavoritos)
-                            addEventListenerListDownload(gifsDescargar)
-                            addEventListenerMax(gifsMaximizar)
-                            addEventListenercerrar(gifsCerrar)
-                        }).catch((err) => { innerError(selectData) })
-                });
-            }).catch((err) => { innerError(selectData) })
-    }
-    searchWrapper.classList.remove("active");
-    hr.classList.remove("active");
-    icon.innerHTML = '<i class="fas fa-search"></i>'
 }
