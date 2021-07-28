@@ -474,16 +474,6 @@ header nav .menu .ul-menu i.create-ajust {
   margin-top: 20px;
 }
 
-.busqueda .gif-favotes p.text-favotes {
-  color: #50E3C2;
-  font-family: var(--family-principal);
-  font-size: 22px;
-  color: #50E3C2;
-  line-height: 33px;
-  margin-left: 20%;
-  width: 63%;
-}
-
 .busqueda #no-content img.imagen-no-gif {
   margin-top: 20px;
 }
@@ -495,6 +485,16 @@ header nav .menu .ul-menu i.create-ajust {
   color: #50E3C2;
   line-height: 33px;
   width: 100%;
+}
+
+.busqueda #no-content p.text-favotes {
+  color: #50E3C2;
+  font-family: var(--family-principal);
+  font-size: 22px;
+  color: #50E3C2;
+  line-height: 33px;
+  margin-left: 20%;
+  width: 63%;
 }
 
 .busqueda .title-mis-gifos {

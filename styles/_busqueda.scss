@@ -263,17 +263,6 @@
   margin-top:20px;
 }
 
-.gif-favotes{
-  p.text-favotes{
-    color: #50E3C2;
-    font-family: var(--family-principal);
-    font-size: 22px;
-    color: #50E3C2;
-    line-height: 33px;
-    margin-left: 20%;
-    width:63%
-  }
-}
 
 #no-content {
   img.imagen-no-gif{
@@ -288,6 +277,15 @@
     line-height: 33px;
     width: 100%;
 
+  }
+  p.text-favotes{
+    color: #50E3C2;
+    font-family: var(--family-principal);
+    font-size: 22px;
+    color: #50E3C2;
+    line-height: 33px;
+    margin-left: 20%;
+    width:63%
   }
 }
 .title-mis-gifos{
