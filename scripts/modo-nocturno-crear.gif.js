@@ -20,10 +20,12 @@ nocturno.onclick = () => {
         img.src = "images/Logo-modo-noc.svg"
         peli.src = "images/pelicula-modo-noc.svg"
         camara.src = "images/camara-modo-noc.svg"
+        localStorage.setItem('dark-theme', 'active')
     } else {
         modo.innerText = "Modo Nocturno"
         camara.src = "images/camara.svg"
         img.src = "images/logo-mobile.svg"
         peli.src = "images/pelicula.svg"
+        localStorage.setItem('dark-theme', 'deactive')
     }
 }
