@@ -22,7 +22,6 @@ inputBox.onkeyup = (e) => {
     fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${userData}`)
         .then((res) => res.json(res))
         .then((gifs) => {
-            console.log(gifs);
             let suggestions = []
             let datagif = gifs.data
             for (let index = 0; index < datagif.length; index++) {
@@ -48,7 +47,9 @@ inputBox.onkeyup = (e) => {
                     //adding onclick attribute in all li tag
                     allList[i].setAttribute("onclick", "select(this)");
                     allList[i].addEventListener('click', (nodo) => {
+                        console.log(i);
                         let DataLi = nodo.path[0].outerText
+                        inputBox.value = DataLi
                         fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${DataLi}`)
                             .then((res) => res.json(res))
                             .then((gif) => {
@@ -109,7 +110,7 @@ inputBox.onkeyup = (e) => {
                             }).catch((err) => { innerError(DataLi) })
                         searchWrapper.classList.remove("active");
                         hr.classList.remove("active");
-                        icon.innerHTML = '<i class="fas fa-search"></i>'
+                        // icon.innerHTML = '<i class="fas fa-search"></i>'
                         if (width > 900) {
                             trendingBusqueda.classList.add("hidden")
                         }
@@ -192,69 +193,69 @@ inputBox.onkeyup = (e) => {
 }
 
 function select(element) {
-    let selectData = element.textContent;
-    let times = document.querySelector('.fa fa-times')
-    inputBox.value = selectData;
-    icon.onclick = () => {
-        inputBox.value = selectData;
-        fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}`)
-            .then((res) => res.json(res))
-            .then((gif) => {
-                let urlsgif = gif.data
-                innerTemplate(urlsgif)
-                let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                if (gifsFavoritos.length > 0) {
-                    loadFavorite(gifsFavoritos)
-                }
-                addEventListenerList(gifsFavoritos)
-                addEventListenerListDownload(gifsDescargar)
-                addEventListenerMax(gifsMaximizar)
-                addEventListenercerrar(gifsCerrar)
-                totalPages = Math.floor(gif.pagination.total_count / 12)
-                if (!divGif.classList.contains("imagenes-normal")) {
-                    divGif.classList.add("imagenes-normal")
-                    divGif.classList.remove("imagenes-error")
-                    pagg.classList.remove("hidden")
-                    reactions.classList.remove("hidden")
-                }
-                reactions.innerHTML = ` <hr class="hr-data"><p class="p-data">${selectData}</p>`
-                let pagination = document.querySelector('.pagination-buttons')
-                if (pagg.contains(pagination)) {
-                    pagg.removeChild(pagination)
-                }
-                if (totalPages >= 416) {
-                    totalPages = 416
-                } else {
-                    totalPages = totalPages
-                }
-                const paginationButtons = new PaginationButton(totalPages, 5);
-                paginationButtons.render(pagg)
-                paginationButtons.onChange(e => {
-                    let numButton = e.target.value
-                    numButton = (numButton * 12) - 12
-                    fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}&offset=${numButton}&limit=12`)
-                        .then((res) => res.json(res))
-                        .then((gif) => {
-                            let urlsgif1 = gif.data
-                            innerTemplate(urlsgif1)
-                            let gifsFavoritos = document.querySelectorAll('.icono-favorito')
-                            let gifsDescargar = document.querySelectorAll('.icono-descargar')
-                            let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
-                            let gifsCerrar = document.querySelectorAll('.icono-cerrar')
-                            if (gifsFavoritos.length > 0) {
-                                loadFavorite(gifsFavoritos)
-                            }
-                            addEventListenerList(gifsFavoritos)
-                            addEventListenerListDownload(gifsDescargar)
-                            addEventListenerMax(gifsMaximizar)
-                            addEventListenercerrar(gifsCerrar)
-                        }).catch((err) => { innerError(selectData) })
-                });
-            }).catch((err) => { innerError(selectData) })
-    }
+    // icon.onclick = () => {
+    // searchWrapper.classList.remove("active");
+    // hr.classList.remove("active");
+    // icon.innerHTML = '<i class="fas fa-search"></i>'
+    // inputBox.value = selectData;
+    // fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}`)
+    //     .then((res) => res.json(res))
+    //     .then((gif) => {
+    //         let urlsgif = gif.data
+    //         innerTemplate(urlsgif)
+    //         let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+    //         let gifsDescargar = document.querySelectorAll('.icono-descargar')
+    //         let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+    //         let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+    //         if (gifsFavoritos.length > 0) {
+    //             loadFavorite(gifsFavoritos)
+    //         }
+    //         addEventListenerList(gifsFavoritos)
+    //         addEventListenerListDownload(gifsDescargar)
+    //         addEventListenerMax(gifsMaximizar)
+    //         addEventListenercerrar(gifsCerrar)
+    //         totalPages = Math.floor(gif.pagination.total_count / 12)
+    //         if (!divGif.classList.contains("imagenes-normal")) {
+    //             divGif.classList.add("imagenes-normal")
+    //             divGif.classList.remove("imagenes-error")
+    //             pagg.classList.remove("hidden")
+    //             reactions.classList.remove("hidden")
+    //         }
+    //         reactions.innerHTML = ` <hr class="hr-data"><p class="p-data">${selectData}</p>`
+    //         let pagination = document.querySelector('.pagination-buttons')
+    //         if (pagg.contains(pagination)) {
+    //             pagg.removeChild(pagination)
+    //         }
+    //         if (totalPages >= 416) {
+    //             totalPages = 416
+    //         } else {
+    //             totalPages = totalPages
+    //         }
+    //         const paginationButtons = new PaginationButton(totalPages, 5);
+    //         paginationButtons.render(pagg)
+    //         paginationButtons.onChange(e => {
+    //             let numButton = e.target.value
+    //             numButton = (numButton * 12) - 12
+    //             fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${selectData}&offset=${numButton}&limit=12`)
+    //                 .then((res) => res.json(res))
+    //                 .then((gif) => {
+    //                     let urlsgif1 = gif.data
+    //                     innerTemplate(urlsgif1)
+    //                     let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+    //                     let gifsDescargar = document.querySelectorAll('.icono-descargar')
+    //                     let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+    //                     let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+    //                     if (gifsFavoritos.length > 0) {
+    //                         loadFavorite(gifsFavoritos)
+    //                     }
+    //                     addEventListenerList(gifsFavoritos)
+    //                     addEventListenerListDownload(gifsDescargar)
+    //                     addEventListenerMax(gifsMaximizar)
+    //                     addEventListenercerrar(gifsCerrar)
+    //                 }).catch((err) => { innerError(selectData) })
+    //         });
+    //     }).catch((err) => { innerError(selectData) })
+    // }
     searchWrapper.classList.remove("active");
     hr.classList.remove("active");
     icon.innerHTML = '<i class="fas fa-search"></i>'
