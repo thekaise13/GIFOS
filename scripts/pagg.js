@@ -47,6 +47,73 @@ inputBox.onkeyup = (e) => {
                 for (let i = 0; i < allList.length; i++) {
                     //adding onclick attribute in all li tag
                     allList[i].setAttribute("onclick", "select(this)");
+                    allList[i].addEventListener('click', (nodo) => {
+                        let DataLi = nodo.path[0].outerText
+                        fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${DataLi}`)
+                            .then((res) => res.json(res))
+                            .then((gif) => {
+                                let urlsgif = gif.data
+                                totalPages = Math.floor(gif.pagination.total_count / 12)
+                                innerTemplate(urlsgif)
+                                let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                                let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                                let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                                let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                                if (gifsFavoritos.length > 0) {
+                                    loadFavorite(gifsFavoritos)
+                                }
+                                addEventListenerList(gifsFavoritos)
+                                addEventListenerListDownload(gifsDescargar)
+                                addEventListenerMax(gifsMaximizar)
+                                addEventListenercerrar(gifsCerrar)
+                                let pagination = document.querySelector('.pagination-buttons')
+                                if (pagg.contains(pagination)) {
+                                    pagg.removeChild(pagination)
+                                }
+                                if (totalPages >= 416) {
+                                    totalPages = 416
+                                } else {
+                                    totalPages = totalPages
+                                }
+                                const paginationButtons = new PaginationButton(totalPages, 5);
+                                if (!divGif.classList.contains("imagenes-normal")) {
+                                    divGif.classList.add("imagenes-normal")
+                                    divGif.classList.remove("imagenes-error")
+                                    pagg.classList.remove("hidden")
+                                    reactions.classList.remove("hidden")
+                                }
+                                paginationButtons.render(pagg)
+                                reactions.innerHTML = ` <hr class="hr-data"> <p class="p-data">${DataLi}</p>`
+                                paginationButtons.onChange(e => {
+                                    let numButton = e.target.value
+                                    numButton = (numButton * 12) - 12
+                                    console.log('-- changed', numButton)
+                                    fetch(`https://api.giphy.com/v1/gifs/search?api_key=vPpkELaH3rnKb94KI9Mz8KU8apj5qZjr&q=${DataLi}&offset=${numButton}&limit=12`)
+                                        .then((res) => res.json(res))
+                                        .then((gif) => {
+                                            let urlsgif1 = gif.data
+                                            innerTemplate(urlsgif1)
+                                            let gifsFavoritos = document.querySelectorAll('.icono-favorito')
+                                            let gifsDescargar = document.querySelectorAll('.icono-descargar')
+                                            let gifsMaximizar = document.querySelectorAll('.icono-maximizar')
+                                            let gifsCerrar = document.querySelectorAll('.icono-cerrar')
+                                            if (gifsFavoritos.length > 0) {
+                                                loadFavorite(gifsFavoritos)
+                                            }
+                                            addEventListenerList(gifsFavoritos)
+                                            addEventListenerListDownload(gifsDescargar)
+                                            addEventListenerMax(gifsMaximizar)
+                                            addEventListenercerrar(gifsCerrar)
+                                        })
+                                });
+                            }).catch((err) => { innerError(DataLi) })
+                        searchWrapper.classList.remove("active");
+                        hr.classList.remove("active");
+                        icon.innerHTML = '<i class="fas fa-search"></i>'
+                        if (width > 900) {
+                            trendingBusqueda.classList.add("hidden")
+                        }
+                    })
                 }
                 icon.firstChild.setAttribute("onclick", "select(this)")
             } else {
