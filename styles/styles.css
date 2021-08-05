@@ -309,6 +309,7 @@ header nav .menu .ul-menu i.create-ajust {
   top: 14px;
   color: #9CAFC3;
   left: 12px;
+  cursor: pointer;
 }
 
 .busqueda .autocom-box li {
@@ -321,6 +322,7 @@ header nav .menu .ul-menu i.create-ajust {
   color: #9CAFC3;
   text-align: left;
   font-family: var(--family-segunda);
+  cursor: pointer;
 }
 
 .busqueda .search-input.active .autocom-box li {
@@ -348,7 +350,6 @@ header nav .menu .ul-menu i.create-ajust {
   line-height: 55px;
   font-size: 18px;
   color: var(--color-secundario);
-  cursor: pointer;
 }
 
 .busqueda .search-input .icon i {

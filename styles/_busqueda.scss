@@ -111,6 +111,7 @@
         top: 14px;
         color: #9CAFC3;
         left: 12px;
+        cursor: pointer;
 
       }
       
@@ -125,6 +126,7 @@
         color: #9CAFC3;
         text-align: left;
         font-family: var(--family-segunda);
+        cursor: pointer;
         
       }
       
@@ -156,7 +158,6 @@
         line-height: 55px;
         font-size: 18px;
         color: var(--color-secundario);
-        cursor: pointer;
         i {
           font-size: 13px;
         }
